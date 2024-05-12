@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+:root {
+    --cor-footer: #0E3873;
+    --cor-fundo: #0B2447;
+    --cor-texto: #fafafa;
+    --cor-btn: #FFD411;
+    --fonte-open-sans: "Open Sans";
+}

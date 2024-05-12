@@ -1,0 +1,10 @@
+.user-data-remove a {
+    text-decoration: none;
+    color: var(--cor-texto);
+}
+
+.user-address-card-btn a{
+    text-decoration: none;
+    color: var(--cor-fundo);
+}
+

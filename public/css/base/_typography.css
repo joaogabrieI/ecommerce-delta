@@ -1,0 +1,70 @@
+.mission-text,
+.footer-contact,
+.company-text,
+.user-title,
+.orders-title,
+.user-label,
+.user-btn-edit,
+.user-data-remove a,
+.user-address-title,
+.cart-title {
+    color: var(--cor-texto);
+}
+
+.user-address-card-title,
+.user-address-card-text {
+    color: black;
+}
+
+.mission-text {
+    font-size: 13px;
+    line-height: 20px;
+    text-align: justify;
+}
+
+.user-address-title h2,
+.user-title h2 {
+    font-size: 30px;
+}
+
+.user-label {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.user-btn-edit, .user-address-card-btn {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--cor-fundo);
+}
+
+.user-data-remove {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.user-address-card-title {
+    font-size: 20px;
+}
+
+.user-address-card-text {
+    font-size: 15px;
+    margin-bottom: 0px;
+}
+
+.dialog-form-label {
+    font-size: 18px;
+    font-weight: bold;
+    font-family: "Open Sans";
+}
+
+.user-btn-edit-address {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+@media (max-width: 600px){
+    .mission-text {
+        font-size: 10px;
+    }
+}
