@@ -49,8 +49,8 @@
                     <div class="user-address-card">
                         <h3 class="user-address-card-title">{{$address->ENDERECO_NOME}}</h3>
                         <p class="user-address-card-text">{{$address->ENDERECO_LOGRADOURO}}, 
-                        {{$address->ENDERECO_NUMERO}} @isset($address->ENDERECO_COMPLEMENTO) - {{$address->ENDERECO_COMPLEMENTO}} @endisset 
-                        - {{$address->ENDERECO_CIDADE}} - {{$address->ENDERECO_ESTADO}} - CEP: {{$address->ENDERECO_CEP}} </p>
+                        {{$address->ENDERECO_NUMERO}} - @isset($address->ENDERECO_COMPLEMENTO) - {{$address->ENDERECO_COMPLEMENTO}} @endisset 
+                         {{$address->ENDERECO_CIDADE}} - {{$address->ENDERECO_ESTADO}} - CEP: {{$address->ENDERECO_CEP}} </p>
 
                         <button type="button" class="open-modal user-address-edit-btn">Editar</button>
                         <a href="#" class="user-address-delete-btn">Excluir</a>
@@ -122,7 +122,8 @@
                             <span class="material-symbols-outlined"> location_on </span>
                             <h3>Adicionar novo endereço</h3>
                         </div>
-                        <form action="" class="modal-form d-flex-column">
+                        <form action="{{route('address.store', $user->USUARIO_ID)}}" method="post" class="modal-form d-flex-column">
+                            @csrf
                             <div class="form-group">
                                 <label for="identificacao" class="dialog-form-label">Identificação</label>
                                 <input type="text" name="identificacao" id="" class="form-control">
@@ -130,37 +131,37 @@
 
                             <div class="form-group">
                                 <label for="logradouro" class="dialog-form-label">Logradouro</label>
-                                <input type="text" name="identificacao" id="" class="form-control">
+                                <input type="text" name="logradouro" id="" class="form-control">
                             </div>
 
                             <div class="form-group">
                                 <label for="numero" class="dialog-form-label">Número</label>
-                                <input type="text" name="identificacao" id="" class="form-control">
+                                <input type="text" name="numero" id="" class="form-control">
                             </div>
 
                             <div class="form-group">
                                 <label for="bairro" class="dialog-form-label">Bairro</label>
-                                <input type="text" name="identificacao" id="" class="form-control">
+                                <input type="text" name="bairro" id="" class="form-control">
                             </div>
 
                             <div class="form-group">
                                 <label for="complemento" class="dialog-form-label">Complemento</label>
-                                <input type="text" name="identificacao" id="" class="form-control">
+                                <input type="text" name="complemento" id="" class="form-control">
                             </div>
 
                             <div class="form-group">
                                 <label for="cep" class="dialog-form-label">CEP</label>
-                                <input type="text" name="identificacao" id="" class="form-control">
+                                <input type="text" name="cep" id="" class="form-control">
                             </div>
 
                             <div class="form-group">
                                 <label for="cidade" class="dialog-form-label">Cidade</label>
-                                <input type="text" name="identificacao" id="" class="form-control">
+                                <input type="text" name="cidade" id="" class="form-control">
                             </div>
 
                             <div class="form-group">
                                 <label for="estado" class="dialog-form-label">Estado</label>
-                                <input type="text" name="identificacao" id="" class="form-control">
+                                <input type="text" name="estado" id="" class="form-control">
                             </div>
 
                             <div class="dialog-container-buttons">
