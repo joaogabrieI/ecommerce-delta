@@ -10,7 +10,7 @@
                     <img src="../imgs/logo.jpg" alt="" class="logo-login-img">
                 </div>
 
-                <form action="post" action="{{ route('register') }}" class="form-login">
+                <form method="post" action="{{ route('register') }}" class="form-login">
                     @csrf
                     <h1 class="title">Registre - se</h1>
                     <input class="inputs" type="text" placeholder="Nome" name="name" :value="old('name')" required
