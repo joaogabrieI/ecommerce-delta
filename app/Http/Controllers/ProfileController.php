@@ -17,9 +17,11 @@ class ProfileController extends Controller
      */
     public function edit(Request $request): View
     {
+        $mensagemSucesso = $request->session()->get('mensagem.sucesso');
         return view('profile.edit', [
             'user' => $request->user(),
-            'addresses' => $request->user()->enderecos
+            'addresses' => $request->user()->enderecos,
+            'mensagemSucesso' => $mensagemSucesso
         ]);
     }
 
@@ -30,8 +32,11 @@ class ProfileController extends Controller
             'USUARIO_NOME' => $request->name,
             "USUARIO_EMAIL" => $request->email
         ])->save();
-        
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+
+        return Redirect::route('profile.edit')->with([
+            'status' => 'profile-updated',
+            'mensagem.sucesso' => "Usuário alterado com sucesso!"
+        ]);
     }
 
     /**
