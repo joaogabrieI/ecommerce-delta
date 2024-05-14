@@ -58,8 +58,14 @@
                             {{$address->ENDERECO_CIDADE}} - {{$address->ENDERECO_ESTADO}} - CEP: {{$address->ENDERECO_CEP}}
                         </p>
 
-                        <button type="button" class="open-modal user-address-edit-btn">Editar</button>
-                        <a href="#" class="user-address-delete-btn">Excluir</a>
+                        <div class="d-flex">
+                            <button type="button" class="open-modal user-address-edit-btn">Editar</button>
+                            <form action="{{route('address.destroy', $address->ENDERECO_ID)}}" method="post" class="">
+                                @csrf
+                                @method('delete')
+                                <button class="user-address-delete-btn">Excluir</button>
+                            </form>
+                        </div>
                     </div>
                     @endforeach
 

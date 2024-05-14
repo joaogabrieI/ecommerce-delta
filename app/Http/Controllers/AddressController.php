@@ -24,4 +24,14 @@ class AddressController extends Controller
 
         return to_route('profile.edit');
     }
+
+    public function destroy(Address $address)
+    {
+        $address->ENDERECO_APAGADO = 1;
+        $address->save();
+
+        return to_route('profile.edit')->with([
+            'mensagem.sucesso' => "Endereço excluído com sucesso!"
+        ]);
+    }
 }

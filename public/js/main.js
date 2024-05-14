@@ -11,7 +11,7 @@ const editUserData = document.querySelector(".user-btn-edit-address")
 
 buttons.forEach(button => {
     button.onclick = function () {
-        modal.show()
+        modal.showModal()
     };
 });
 
