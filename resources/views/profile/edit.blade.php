@@ -45,14 +45,19 @@
                     <h2>Endereços</h2>
                 </div>
                 <div>
+                    @foreach ($addresses as $address)
                     <div class="user-address-card">
-                        <h3 class="user-address-card-title">João casa</h3>
-                        <p class="user-address-card-text">Avenida Paulista, 253 - Paulista - APTO 25 BL 02 - São Paulo - SP</p>
+                        <h3 class="user-address-card-title">{{$address->ENDERECO_NOME}}</h3>
+                        <p class="user-address-card-text">{{$address->ENDERECO_LOGRADOURO}}, 
+                        {{$address->ENDERECO_NUMERO}} @isset($address->ENDERECO_COMPLEMENTO) - {{$address->ENDERECO_COMPLEMENTO}} @endisset 
+                        - {{$address->ENDERECO_CIDADE}} - {{$address->ENDERECO_ESTADO}} - CEP: {{$address->ENDERECO_CEP}} </p>
 
                         <button type="button" class="open-modal user-address-edit-btn">Editar</button>
                         <a href="#" class="user-address-delete-btn">Excluir</a>
+                    </div>
+                    @endforeach
 
-                        <dialog class="p-3">
+                    <dialog class="p-3">
                             <div class="d-flex align-items-center">
                                 <span class="material-symbols-outlined"> location_on </span>
                                 <h3>Editar Endereço</h3>
@@ -108,14 +113,6 @@
                                 <button class="dialog-button-close mt-2">Fechar</button>
                             </div>
                         </dialog>
-                    </div>
-                    <div class="user-address-card">
-                        <h3 class="user-address-card-title">João trabalho</h3>
-                        <p class="user-address-card-text">Avenida Paulista, 253 - Paulista - APTO 25 BL 02 - São Paulo - SP</p>
-                        <p class="user-address-card-text"></p>
-                        <button type="button" class="open-modal user-address-edit-btn">Editar</button>
-                        <a href="#" class="user-address-delete-btn">Excluir</a>
-                    </div>
                     <button class="user-address-card-btn open-modal-address">
                         Adicionar Endereço
                     </button>
