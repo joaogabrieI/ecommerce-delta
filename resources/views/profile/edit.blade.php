@@ -6,7 +6,7 @@
                     <span class="material-symbols-outlined"> person </span>
                     <h2>Meus Dados</h2>
                 </div>
-                <form method="post" action="{{ route('profile.update') }}">
+                <form method="post" action="{{ route('profile.update', $user->USUARIO_ID) }}">
                     @csrf
                     @method('patch')
                     <div class="form-group">
@@ -49,7 +49,7 @@
                     <div class="user-address-card">
                         <h3 class="user-address-card-title">{{$address->ENDERECO_NOME}}</h3>
                         <p class="user-address-card-text">{{$address->ENDERECO_LOGRADOURO}}, 
-                        {{$address->ENDERECO_NUMERO}} - @isset($address->ENDERECO_COMPLEMENTO) - {{$address->ENDERECO_COMPLEMENTO}} @endisset 
+                        {{$address->ENDERECO_NUMERO}} - @isset($address->ENDERECO_COMPLEMENTO) - @endisset 
                          {{$address->ENDERECO_CIDADE}} - {{$address->ENDERECO_ESTADO}} - CEP: {{$address->ENDERECO_CEP}} </p>
 
                         <button type="button" class="open-modal user-address-edit-btn">Editar</button>

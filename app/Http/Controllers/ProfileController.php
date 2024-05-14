@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -23,10 +24,13 @@ class ProfileController extends Controller
     }
 
 
-    public function update(ProfileUpdateRequest $request): RedirectResponse
+    public function update(Request $request, User $user): RedirectResponse
     {
-        $request->user()->save();
-
+        $user->fill([
+            'USUARIO_NOME' => $request->name,
+            "USUARIO_EMAIL" => $request->email
+        ])->save();
+        
         return Redirect::route('profile.edit')->with('status', 'profile-updated');
     }
 
