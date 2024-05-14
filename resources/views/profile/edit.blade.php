@@ -49,6 +49,11 @@
                     <span class="material-symbols-outlined"> location_on </span>
                     <h2>Endereços</h2>
                 </div>
+                @isset($enderecoSucesso)
+                <div class="alert alert-success">
+                    {{$enderecoSucesso}}
+                </div>
+                @endisset
                 <div>
                     @foreach ($addresses as $address)
                     <div class="user-address-card">

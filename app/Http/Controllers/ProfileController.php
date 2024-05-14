@@ -19,10 +19,12 @@ class ProfileController extends Controller
     public function edit(Request $request): View
     {
         $mensagemSucesso = $request->session()->get('mensagem.sucesso');
+        $enderecoSucesso = $request->session()->get('endereco.sucesso');
         return view('profile.edit', [
             'user' => $request->user(),
             'addresses' => Address::notDeletedForUser($request->user()->USUARIO_ID)->get(),
-            'mensagemSucesso' => $mensagemSucesso
+            'mensagemSucesso' => $mensagemSucesso,
+            'enderecoSucesso' => $enderecoSucesso
         ]);
     }
 

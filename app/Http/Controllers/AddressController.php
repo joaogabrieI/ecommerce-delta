@@ -31,7 +31,7 @@ class AddressController extends Controller
         $address->save();
 
         return to_route('profile.edit')->with([
-            'mensagem.sucesso' => "Endereço excluído com sucesso!"
+            'endereco.sucesso' => "Endereço excluído com sucesso!"
         ]);
     }
 }
