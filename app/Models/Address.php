@@ -29,4 +29,10 @@ class Address extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function scopeNotDeletedForUser($query, $userId)
+    {
+        return $query->where('ENDERECO_APAGADO', 0)
+                     ->where('USUARIO_ID', $userId);
+    }
 }

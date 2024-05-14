@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
 use App\Models\User;
+use App\Models\Address;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -20,7 +21,7 @@ class ProfileController extends Controller
         $mensagemSucesso = $request->session()->get('mensagem.sucesso');
         return view('profile.edit', [
             'user' => $request->user(),
-            'addresses' => $request->user()->enderecos,
+            'addresses' => Address::notDeletedForUser($request->user()->USUARIO_ID)->get(),
             'mensagemSucesso' => $mensagemSucesso
         ]);
     }
