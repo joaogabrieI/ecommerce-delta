@@ -21,7 +21,24 @@
                 <input type="text" placeholder="Pesquisar" class="pesquisar">
                 <img src="img/icon.png" alt="" id="logo">
                 <div class="bnt-carrinho entrar">
-                    <button class="btn-login">Entrar</button>
+                    @guest
+                    <a href="{{route('login')}}">
+                        <button class="btn-login">Entrar</button>
+                    </a>
+                    @endguest
+                    @auth
+                    <div class="dropdown">
+                        <button class="dropbtn">{{Auth::User()->USUARIO_NOME}}</button>
+                        <div class="dropdown-content">
+                            <a href="{{route('profile.edit')}}">Minha Conta</a>
+                            <a href="{{route('password.confirm')}}">Alterar senha</a>
+                            <form action="{{route('logout')}}" method="post">
+                                @csrf
+                                <button>Sair</button>
+                            </form>
+                        </div>
+                    </div>
+                    @endauth
                     <img src="img/carrinho.png" alt="" class="carrinho-compra">
                 </div>
             </div>
