@@ -35,8 +35,27 @@ class AddressController extends Controller
         ]);
     }
 
-    public function edit()
+    public function edit(Address $address)
     {
-        return view('profile.address.edit');
+        return view('profile.address.edit')->with([
+            'address' => $address
+        ]);
+    }
+
+    public function update(Address $address, Request $request)
+    {
+        $address->fill([
+            "ENDERECO_NOME" => $request->identificacao,
+            "ENDERECO_LOGRADOURO" => $request->logradouro,
+            "ENDERECO_NUMERO" => $request->numero,
+            "ENDERECO_COMPLEMENTO" => $request->complemento,
+            "ENDERECO_CEP" => $request->cep,
+            "ENDERECO_CIDADE" => $request->cidade,
+            "ENDERECO_ESTADO" => $request->estado
+        ])->save();
+
+        return to_route('profile.edit')->with([
+            'endereco.sucesso' => "Endereço alterado com sucesso!"
+        ]);
     }
 }

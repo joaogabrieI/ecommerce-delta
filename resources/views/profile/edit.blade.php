@@ -73,7 +73,7 @@
                         </div>
                     </div>
                     @endforeach
-                    
+
                     <button class="user-address-card-btn open-modal-address">
                         Adicionar Endereço
                     </button>
@@ -99,12 +99,7 @@
                                 <label for="numero" class="dialog-form-label">Número</label>
                                 <input type="text" name="numero" id="" class="form-control">
                             </div>
-
-                            <div class="form-group">
-                                <label for="bairro" class="dialog-form-label">Bairro</label>
-                                <input type="text" name="bairro" id="" class="form-control">
-                            </div>
-
+                            
                             <div class="form-group">
                                 <label for="complemento" class="dialog-form-label">Complemento</label>
                                 <input type="text" name="complemento" id="" class="form-control">
