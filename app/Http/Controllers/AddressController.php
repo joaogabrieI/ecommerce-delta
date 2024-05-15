@@ -34,4 +34,9 @@ class AddressController extends Controller
             'endereco.sucesso' => "Endereço excluído com sucesso!"
         ]);
     }
+
+    public function edit()
+    {
+        return view('profile.address.edit');
+    }
 }
