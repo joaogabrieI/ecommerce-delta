@@ -31,7 +31,7 @@
                         <button class="dropbtn">{{Auth::User()->USUARIO_NOME}}</button>
                         <div class="dropdown-content">
                             <a href="{{route('profile.edit')}}">Minha Conta</a>
-                            <a href="{{route('password.confirm')}}">Alterar senha</a>
+                            <a href="{{route('password.edit')}}">Alterar senha</a>
                             <form action="{{route('logout')}}" method="post">
                                 @csrf
                                 <button>Sair</button>
