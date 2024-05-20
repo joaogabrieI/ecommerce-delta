@@ -1,17 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Produtos</title>
     <link rel="stylesheet" href="../style/main.css">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
-
-<body class="planodefundo-img">
-
+<body>
+    
     <header>
 
         <nav id="nav">
@@ -20,24 +16,24 @@
                 <div class="menu-icon"></div>
                 <img src="../imgs/logo.jpg" alt="" class="logo">
                 <div class="bnt-carrinho entrar">
-                @guest
-                    <a href="{{route('login')}}">
-                        <button class="btn-login">Entrar</button>
-                    </a>
+                    @guest
+                        <a href="{{route('login')}}">
+                            <button class="btn-login">Entrar</button>
+                        </a>
                     @endguest
                     @auth
-                    <div class="dropdown">
-                        <button class="dropbtn">{{Auth::User()->USUARIO_NOME}}</button>
-                        <div class="dropdown-content">
-                            <a href="{{route('profile.edit')}}">Minha Conta</a>
-                            <a href="{{route('orders.index', Auth::User()->USUARIO_ID)}}">Meus pedidos</a>
-                            <a href="{{route('password.edit')}}">Alterar senha</a>
-                            <form action="{{route('logout')}}" method="post">
-                                @csrf
-                                <button>Sair</button>
-                            </form>
+                        <div class="dropdown">
+                            <button class="dropbtn">{{Auth::User()->USUARIO_NOME}}</button>
+                            <div class="dropdown-content">
+                                <a href="{{route('profile.edit')}}">Minha Conta</a>
+                                <a href="{{route('orders.index', Auth::User()->USUARIO_ID)}}">Meus pedidos</a>
+                                <a href="{{route('password.edit')}}">Alterar senha</a>
+                                <form action="{{route('logout')}}" method="post">
+                                    @csrf
+                                    <button>Sair</button>
+                                </form>
+                            </div>
                         </div>
-                    </div>
                     @endauth
                     <img src="../imgs/carrinho.png" alt="" class="carrinho-compra">
                 </div>
@@ -61,41 +57,32 @@
         </nav>
 
     </header>
+    
 
-    <div class="nome-loja">
-        <h1>Delta Games</h1>
-    </div>
+    <section class="section2 produtos_produtos">
 
-    <section class="section1">
 
-        <div class="links-icons" id="links-icons">
-            <div class="div0">
-                <img class="imgs-icons" src="../imgs/frete.png" alt="">
-                <p>Entrega para todo Brasil</p>
+        <div class="tabela-navegacao">
+            <div class="console">
+                <h2>Categorias</h2>
             </div>
-            <div class="div0">
-                <img class="imgs-icons" src="../imgs/desconto.png" alt="">
-                <p>Cupons</p>
+            @foreach($categories as $category)
+            <div class="console-op">
+                <a href="{{route('products.category', $category->CATEGORIA_ID)}}">{{$category->CATEGORIA_NOME}}</a>
             </div>
-            <div class="div0">
-                <img class="imgs-icons" src="../imgs/game.png" alt="">
-                <p>Jogos</p>
-            </div>
+            @endforeach
         </div>
 
-    </section>
-
-    <section class="section2">
-        <div class="cards-pai" id="cardsPai">
-                @foreach($products as $product)
-                    @foreach($product->images as $image)
-                <div class="card" id="modeloCard">
+        <div class="cards-pai cardsPai_produtos" id="cardsPai">
+            @foreach($products as $product)
+                @foreach($product->images as $image)
+            <div class="card" id="modeloCard">
                     <div class="card-image"><img class="imgs-cards" src="{{$image->IMAGEM_URL}}" alt=""></div>
                     <div class="titulo-produto">
                         <h2>{{$product->PRODUTO_NOME}}</h2>
                     </div>
                     <div class="card-prices">
-                        <div class="card-price">{{$product->PRODUTO_PRECO}} <span class="av">À vista</span></div>
+                        <div class="card-price">R$ {{$product->PRODUTO_PRECO}} <span class="av">À vista</span></div>
                         <p>ou</p>
                         <div class="card-price">R$ 129,99 <span class="nc">No cartão</span></div>
                     </div>
@@ -106,10 +93,10 @@
                         <button class="card-button" id="add">Adicionar</button>
                     </div>
                 </div>
-
                 @endforeach
             @endforeach
             </div>
+
     </section>
 
     <footer>
@@ -179,6 +166,6 @@
     </div>
 
     <script src="../js/index.js"></script>
-</body>
 
+</body>
 </html>

@@ -25,4 +25,13 @@ class ProductController extends Controller
         $images = ProductImage::where('PRODUTO_ID', $id)->get();
         return view("home.show")->with(["product" => $product, "qtd" => $qtd, "images" => $images]);
     }
+
+    public function productsCategory()
+    {
+        $products = Product::with(['images' => function($query) {
+            $query->whereIn('IMAGEM_ORDEM', [1]);
+        }])->get();
+        $categories = Category::all();
+        return view('home.productsCategory')->with(["products" => $products, "categories" => $categories]);
+    }
 }

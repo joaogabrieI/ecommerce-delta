@@ -13,7 +13,7 @@ class Category extends Model
     public $timestamps = false;
 
     public function products(){
-        return $this->hasOne(Products::class, "CATEGORIA_ID");
+        return $this->hasMany(Product::class, "CATEGORIA_ID");
     }
     
     protected $fillable = [

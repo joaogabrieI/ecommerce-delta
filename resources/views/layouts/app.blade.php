@@ -40,7 +40,9 @@
                         </div>
                     </div>
                     @endauth
-                    <img src="img/carrinho.png" alt="" class="carrinho-compra">
+                    <a href="">
+                        <img src="img/carrinho.png" alt="" class="carrinho-compra">
+                    </a>
                 </div>
             </div>
         </nav>
