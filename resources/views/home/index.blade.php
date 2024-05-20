@@ -20,7 +20,25 @@
                 <div class="menu-icon"></div>
                 <img src="../imgs/logo.jpg" alt="" class="logo">
                 <div class="bnt-carrinho entrar">
-                    <button class="btn-login">Entrar</button>
+                @guest
+                    <a href="{{route('login')}}">
+                        <button class="btn-login">Entrar</button>
+                    </a>
+                    @endguest
+                    @auth
+                    <div class="dropdown">
+                        <button class="dropbtn">{{Auth::User()->USUARIO_NOME}}</button>
+                        <div class="dropdown-content">
+                            <a href="{{route('profile.edit')}}">Minha Conta</a>
+                            <a href="{{route('orders.index', Auth::User()->USUARIO_ID)}}">Meus pedidos</a>
+                            <a href="{{route('password.edit')}}">Alterar senha</a>
+                            <form action="{{route('logout')}}" method="post">
+                                @csrf
+                                <button>Sair</button>
+                            </form>
+                        </div>
+                    </div>
+                    @endauth
                     <img src="../imgs/carrinho.png" alt="" class="carrinho-compra">
                 </div>
             </div>
