@@ -31,7 +31,7 @@ class Product extends Model
 
     public function cart()
     {
-        return $this->belongsTo(Cart::class, "PRODUTO_ID");
+        return $this->hasMany(Cart::class, "PRODUTO_ID");
     }
 
     protected $fillable = [

@@ -12,7 +12,9 @@ class CartController extends Controller
 {
     public function index(User $user)
     {
-        return view('profile.cart.index');
+        $userId = Auth::User()->USUARIO_ID;
+        $products = Cart::with(['products.images'])->where('USUARIO_ID', $userId)->get();
+        return view('profile.cart.index')->with(['products' => $products]);
     }
 
     public function add(Product $product)

@@ -20,21 +20,22 @@
                             </tr>
                         </thead>
                         <tbody class="align-middle">
+                        @foreach($products as $cartItem)
                             <tr>
                                 <td class="p-3">
-                                    <img src="img/twitter-3 1.png" alt="">
-                                    Descrição do produto
+                                    <img src="{{$cartItem->products->images->first()->IMAGEM_URL}}" alt="" width="50px" height="50px">
+                                    {{$cartItem->products->PRODUTO_NOME}}
                                 </td>
                                 <td class="text-center">
-                                    R$ 500,00
+                                    R$ {{ number_format($cartItem->products->PRODUTO_PRECO, 2, ',', '.') }}
                                 </td>
                                 <td class="text-center cart-qtd">
                                     <button>-</button>
-                                    1
+                                    {{ $cartItem->ITEM_QTD }}
                                     <button>+</button>
                                 </td>
                                 <td class="text-center">
-                                    R$ 1000,00
+                                    R$ {{ number_format($cartItem->products->PRODUTO_PRECO * $cartItem->ITEM_QTD, 2, ',', '.') }}
                                 </td>
                                 <td class="text-center cart-trash">
                                     <a href="">
@@ -44,54 +45,7 @@
                                     </a>
                                 </td>
                             </tr>
-                            <tr>
-                                <td class="p-3">
-                                    <img src="img/twitter-3 1.png" alt="">
-                                    Descrição do produto
-                                </td>
-                                <td class="text-center">
-                                    R$ 500,00
-                                </td>
-                                <td class="text-center cart-qtd">
-                                    <button>-</button>
-                                    1
-                                    <button>+</button>
-                                </td>
-                                <td class="text-center">
-                                    R$ 1000,00
-                                </td>
-                                <td class="text-center cart-trash">
-                                    <a href="">
-                                        <span class="material-symbols-outlined">
-                                            delete
-                                        </span>
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="p-3">
-                                    <img src="img/twitter-3 1.png" alt="">
-                                    Descrição do produto
-                                </td>
-                                <td class="text-center">
-                                    R$ 500,00
-                                </td>
-                                <td class="text-center cart-qtd">
-                                    <button>-</button>
-                                    1
-                                    <button>+</button>
-                                </td>
-                                <td class="text-center">
-                                    R$ 1000,00
-                                </td>
-                                <td class="text-center cart-trash">
-                                    <a href="">
-                                        <span class="material-symbols-outlined">
-                                            delete
-                                        </span>
-                                    </a>
-                                </td>
-                            </tr>
+                            @endforeach
                             <tr class="bg-dark">
                                 <td colspan="3"></td>
                                 <td colspan="3" class="text-end p-2">Subtotal: R$ 3000,00</td>
