@@ -69,4 +69,5 @@ Route::middleware('auth')->group(function () {
     Route::get('profile/{user}/orders', [OrdersController::class, 'index'])->name('orders.index');
 
     Route::get('/cart', [CartController::class, 'index'])->name('cart');
+    Route::post('/cart/{product}', [CartController::class, 'add'])->name('cart.add');
 });

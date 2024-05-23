@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Category;
 use App\Models\ProductImage;
+use App\Models\Cart;
 
 class Product extends Model
 {
@@ -26,6 +27,11 @@ class Product extends Model
     public function qtd()
     {
         return $this->belongsTo(ProductStock::class, "PRODUTO_ID");
+    }
+
+    public function cart()
+    {
+        return $this->belongsTo(Cart::class, "PRODUTO_ID");
     }
 
     protected $fillable = [

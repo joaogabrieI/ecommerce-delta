@@ -105,7 +105,8 @@
                         <a href="{{route('product.show', $product->PRODUTO_ID)}}">
                             <button class="card-button" id="comp">Ver Detalhes</button>
                         </a>
-                        <form action="" method="post">
+                        <form action="{{route('cart.add', $product->PRODUTO_ID)}}" method="post">
+                            @csrf
                             <button class="card-button" id="add">Adicionar ao carrinho</button>
                         </form>
                     </div>

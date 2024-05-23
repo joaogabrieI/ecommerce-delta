@@ -35,7 +35,7 @@
                             </div>
                         </div>
                     @endauth
-                    <a href="{{route('cart')}}">
+                    <a href="{{route('cart', Auth::User()->USUARIO_ID)}}">
                         <img src="{{asset('../imgs/carrinho.png')}}" alt="" class="carrinho-compra">
                     </a>
                 </div>

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Models\Address;
+use App\Models\Cart;
 
 class User extends Authenticatable
 {
@@ -53,5 +54,10 @@ class User extends Authenticatable
     public function enderecos()
     {
         return $this->hasMany(Address::class, "USUARIO_ID");
+    }
+
+    public function cart()
+    {
+        return $this->hasOne(Cart::class, "USUARIO_ID");
     }
 }
