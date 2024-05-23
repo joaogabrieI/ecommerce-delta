@@ -35,7 +35,9 @@
                             </div>
                         </div>
                     @endauth
-                    <img src="../imgs/carrinho.png" alt="" class="carrinho-compra">
+                    <a href="{{route('cart')}}">
+                        <img src="{{asset('../imgs/carrinho.png')}}" alt="" class="carrinho-compra">
+                    </a>
                 </div>
             </div>
 

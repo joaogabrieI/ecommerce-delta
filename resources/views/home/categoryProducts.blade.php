@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{{asset('../style/main.css')}}">
 </head>
 <body>
-    
+
     <header>
 
         <nav id="nav">
@@ -35,7 +35,9 @@
                             </div>
                         </div>
                     @endauth
-                    <img src="{{asset('../imgs/carrinho.png')}}" alt="" class="carrinho-compra">
+                    <a href="{{route('cart')}}">
+                        <img src="{{asset('../imgs/carrinho.png')}}" alt="" class="carrinho-compra">
+                    </a>
                 </div>
             </div>
 
@@ -57,7 +59,7 @@
         </nav>
 
     </header>
-    
+
 
     <section class="section2 produtos_produtos">
 

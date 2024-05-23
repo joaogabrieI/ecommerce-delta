@@ -39,7 +39,9 @@
                         </div>
                     </div>
                     @endauth
-                    <img src="../imgs/carrinho.png" alt="" class="carrinho-compra">
+                    <a href="{{route('cart')}}">
+                        <img src="{{asset('../imgs/carrinho.png')}}" alt="" class="carrinho-compra">
+                    </a>
                 </div>
             </div>
 
@@ -103,7 +105,9 @@
                         <a href="{{route('product.show', $product->PRODUTO_ID)}}">
                             <button class="card-button" id="comp">Ver Detalhes</button>
                         </a>
-                        <button class="card-button" id="add">Adicionar</button>
+                        <form action="" method="post">
+                            <button class="card-button" id="add">Adicionar ao carrinho</button>
+                        </form>
                     </div>
                 </div>
 

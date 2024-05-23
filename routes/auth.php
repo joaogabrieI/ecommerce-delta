@@ -11,6 +11,7 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\AddressController;
 use App\Http\Controllers\OrdersController;
+use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {
@@ -66,4 +67,6 @@ Route::middleware('auth')->group(function () {
     Route::put('/address/{address}', [AddressController::class, 'update'])->name('address.update');
 
     Route::get('profile/{user}/orders', [OrdersController::class, 'index'])->name('orders.index');
+
+    Route::get('/cart', [CartController::class, 'index'])->name('cart');
 });
