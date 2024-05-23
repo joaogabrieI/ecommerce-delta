@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Produtos</title>
-    <link rel="stylesheet" href="../style/main.css">
+    <link rel="stylesheet" href="{{asset('../style/main.css')}}">
 </head>
 <body>
     
@@ -14,7 +14,7 @@
 
             <div class="nav-princi">
                 <div class="menu-icon"></div>
-                <img src="../imgs/logo.jpg" alt="" class="logo">
+                <img src="{{asset('../imgs/logo.jpg')}}" alt="" class="logo">
                 <div class="bnt-carrinho entrar">
                     @guest
                         <a href="{{route('login')}}">
@@ -35,20 +35,20 @@
                             </div>
                         </div>
                     @endauth
-                    <img src="../imgs/carrinho.png" alt="" class="carrinho-compra">
+                    <img src="{{asset('../imgs/carrinho.png')}}" alt="" class="carrinho-compra">
                 </div>
             </div>
 
             <div class="sub-nav">
 
                 <ul class="nav-icons">
-                    <li><a href="#" class="navb"><img class="icones-nav" src="../imgs/playstation.png"
+                    <li><a href="#" class="navb"><img class="icones-nav" src="{{asset('../imgs/playstation.png')}}"
                                 alt="">Playstation</a></li>
-                    <li><a href="#" class="navb"><img class="icones-nav" src="../imgs/xbox.png" alt="">Xbox</a></li>
+                    <li><a href="#" class="navb"><img class="icones-nav" src="{{asset('../imgs/xbox.png')}}" alt="">Xbox</a></li>
                     <li id="pesquisar"><input type="text" placeholder="Pesquisar" class="pesquisar"></li>
-                    <li><a href="#" class="navb"><img class="icones-nav" src="../imgs/nintendo.png" alt="">Nintendo</a>
+                    <li><a href="#" class="navb"><img class="icones-nav" src="{{asset('../imgs/nintendo.png')}}" alt="">Nintendo</a>
                     </li>
-                    <li><a href="#" class="navb"><img class="icones-nav" src="../imgs/pc.png" alt="">Pc</a></li>
+                    <li><a href="#" class="navb"><img class="icones-nav" src="{{asset('../imgs/pc.png')}}" alt="">Pc</a></li>
                 </ul>
 
             </div>
@@ -65,6 +65,9 @@
         <div class="tabela-navegacao">
             <div class="console">
                 <h2>Categorias</h2>
+            </div>
+            <div class="console-op">
+                <a href="{{route('products')}}">Todos os produtos</a>
             </div>
             @foreach($categories as $category)
             <div class="console-op">
@@ -102,7 +105,7 @@
     <footer>
         <div class="company-info">
             <div class="footer-logo">
-                <img src="../imgs/logo.jpg" alt="" class="logo">
+                <img src="{{asset('../imgs/logo.jpg')}}" alt="" class="logo">
             </div>
 
             <p class="text">

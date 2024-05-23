@@ -10,6 +10,7 @@ class CategoryController extends Controller
     public function index(Category $category)
     {
         $categories = Category::all();
+        $products = $category->products;
         return view('home.categoryProducts')->with(['products' => $products, 'categories' => $categories]);
     }
 }
