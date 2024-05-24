@@ -66,7 +66,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/address/{address}/edit', [AddressController::class, 'edit'])->name('address.edit');
     Route::put('/address/{address}', [AddressController::class, 'update'])->name('address.update');
 
-    Route::get('profile/{user}/orders', [OrdersController::class, 'index'])->name('orders.index');
+    Route::get('profile/orders', [OrdersController::class, 'index'])->name('orders.index');
 
     Route::get('/cart', [CartController::class, 'index'])->name('cart');
     Route::post('/cart/{product}', [CartController::class, 'add'])->name('cart.add');

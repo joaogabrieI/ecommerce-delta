@@ -1,0 +1,85 @@
+.imgs-cards{
+    width: 100%;
+    border-radius: 10px;
+}
+
+.card{
+    width: 20%;
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.404);
+    padding: 10px;
+    border-radius: 15px;
+    margin: 60px;
+    height: 20%;    
+    background-color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.cards-pai{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.card-price{
+    font-size: 25px;
+    margin-top: -10px;
+    margin-bottom: 15px;
+}
+
+.card-price span{
+    font-size: 15px;
+}
+
+.card-button{
+    color: white;
+    border-radius: 10px;
+    padding: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.733);
+}
+
+.card-prices{
+    margin-top: 30px;
+}
+
+.card-prices p{
+    margin-top: -10px;
+    margin-bottom: 15px;
+}
+
+.card-button:hover{
+    cursor: pointer;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s;
+}
+
+.card:hover{
+    transform: scale(1.05);
+    transition: all 0.6s;
+    cursor: pointer;
+}
+
+
+@media screen and (max-width:1217px){
+    .card{
+        height: 13%;    
+    }
+}
+
+.cardsPai_produtos{
+    margin-top: 250px;
+    width: 50%;
+    margin-left: 30%;
+}
+
+#modeloCard{
+    width: 20%;
+    height: 450px;
+}
+
+
+/* .cardsPai_produtos-pr{
+    width: 19%;
+    height: 400px;
+} */

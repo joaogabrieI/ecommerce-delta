@@ -1,10 +1,10 @@
 .container-pedidos {
-    margin: 100px auto;
     background-color: #ffffff;
     padding: 20px;
     border-radius: 10px;
     width: 80%;
-    max-width: 900px;
+    margin-bottom: 80px;
+    margin-left: 10%;
 }
 
 .info {
@@ -27,46 +27,19 @@
     color: #333333;
 }
 
-
-.menu-icon{
-    width: 20px;
-    height: 2px;
-    background: white;
-    transform: translateY(50%);
-    transition: 0.5s;
-    border-radius: 5px;
-    cursor: pointer;
+.section-pedidos{
+    margin-top: 15%;
 }
 
-.menu-icon::before,
-.menu-icon::after{
-    content: "";
-    position: absolute;
-    width: 20px;
-    height: 2px;
-    background: white;
-    transition: 0.5s;
-    border-radius: 5px;
+.pedidos{
+    margin-left: 39%;
 }
 
-.menu-icon::before{
-    top: -5px;
-}
-
-.menu-icon::after{
-    top: 5px;
-}
-
-.menu-icon.active{
-    background-color: rgba(0, 0, 0, 0);
-}
-
-.menu-icon.active::before{
+.header-pedidos{
+    position: fixed;
     top: 0;
-    transform: rotate(45deg);
 }
 
-.menu-icon.active::after{
-    top: 0;
-    transform: rotate(135deg);
+.pedidos-body{
+    height: 10vh;
 }
