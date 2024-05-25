@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-guest-layout>
     <main class="d-flex justify-content-sm-around mb-5">
         <section class="user-data d-flex align-items-center justify-content-center">
             <div>
@@ -132,4 +132,4 @@
             </div>
         </section>
     </main>
-</x-app-layout>
+</x-guest-layout>

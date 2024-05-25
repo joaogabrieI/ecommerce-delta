@@ -1,4 +1,4 @@
-
+<x-guest-layout>
     <main>
         <section>
             <div class="d-flex align-items-center">
@@ -47,6 +47,7 @@
                     <button type="submit" class="mt-2 dialog-button-edit">Editar</button>
                 </div>
 
-                </form>
+            </form>
         </section>
     </main>
+</x-guest-layout>

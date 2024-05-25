@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-guest-layout>
     <main> 
         <section>
             <form method="POST" action="{{ route('password.update') }}">
@@ -35,4 +35,4 @@
             </form>
         </section>
     </main>
-</x-layout-app>
+</x-guest-app>

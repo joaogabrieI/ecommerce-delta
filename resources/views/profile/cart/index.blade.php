@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-guest-layout>
     <main>
         <section class="cart d-flex">
             <div class="container">
@@ -30,9 +30,7 @@
                                     R$ {{ number_format($cartItem->products->PRODUTO_PRECO, 2, ',', '.') }}
                                 </td>
                                 <td class="text-center cart-qtd">
-                                    <button>-</button>
-                                    {{ $cartItem->ITEM_QTD }}
-                                    <button>+</button>
+                                    <input type="number" name="qtd" value="{{ $cartItem->ITEM_QTD }}">                                 
                                 </td>
                                 <td class="text-center">
                                     R$ {{ number_format($cartItem->products->PRODUTO_PRECO * $cartItem->ITEM_QTD, 2, ',', '.') }}
@@ -67,4 +65,4 @@
             </div>
         </section>
     </main>
-</x-app-layout>
+</x-guest-layout>
