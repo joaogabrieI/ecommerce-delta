@@ -91,11 +91,11 @@
         @endauth
         <nav class="nav-navbar">
             <ul>
-                <li class="li"><a href="#"><img src="../imgs/playstation.png" alt="">Playstation</a></li>
-                <li class="li"><a href="#"><img src="../imgs/xbox.png" alt="">Xbox</a></li>
+                <li class="li"><a href="#"><img src="{{asset('../imgs/playstation.png')}}" alt="">Playstation</a></li>
+                <li class="li"><a href="#"><img src="{{asset('../imgs/xbox.png')}}" alt="">Xbox</a></li>
                 <input type="text" placeholder="Pesquisar" class="input-pesquisa">
-                <li class="li"><a href="#"><img src="../imgs/nintendo.png" alt="">Nintendo</a></li>
-                <li class="li"><a href="#"><img src="../imgs/pc.png" alt="">Pc</a></li>
+                <li class="li"><a href="#"><img src="{{asset('../imgs/nintendo.png')}}" alt="">Nintendo</a></li>
+                <li class="li"><a href="#"><img src="{{asset('../imgs/pc.png')}}" alt="">Pc</a></li>
             </ul>
         </nav>
     </header>
@@ -105,7 +105,7 @@
     <footer>
         <div class="company-info">
             <div class="footer-logo">
-                <img src="../imgs/logo.jpg" alt="" class="logo">
+                <img src="{{asset('../imgs/logo.jpg')}}" alt="" class="logo">
             </div>
 
             <p class="text">
@@ -168,7 +168,7 @@
         </p>
     </div>
 
-    <script src="../js/index.js"></script>
+    <script src="{{asset('../js/index.js')}}"></script>
 </body>
 
 </html>
