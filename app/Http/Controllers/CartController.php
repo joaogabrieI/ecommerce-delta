@@ -46,7 +46,7 @@ class CartController extends Controller
             ]);
         }
 
-        return redirect()->back()->with('success', 'Produto adicionado ao carrinho com sucesso!');
+        return to_route('cart')->with('success', 'Produto adicionado ao carrinho com sucesso!');
     }
 
     public function remove($productId)

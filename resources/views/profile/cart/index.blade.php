@@ -85,7 +85,7 @@
                 .then(response => response.json())
                 .then(data => {
                     if (data.success) {
-                        location.reload(); // Reload the page to see updated totals
+                        location.reload();
                     } else {
                         alert('Erro ao atualizar a quantidade do produto.');
                     }
