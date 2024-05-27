@@ -14,14 +14,14 @@ class CartController extends Controller
     {
         $userId = Auth::User()->USUARIO_ID;
         $products = Cart::with(['products.images'])->where('USUARIO_ID', $userId) ->where('ITEM_QTD', '>', 0)->get();
-        $total = $products->sum(function ($cartItem) {
-            return $cartItem->products->PRODUTO_PRECO * $cartItem->ITEM_QTD;
-        });
+        $subtotal = 0;
+        foreach ($products as $cartItem) {
+            $product = $cartItem->products;
+            $discountedPrice = $product->PRODUTO_PRECO - ($product->PRODUTO_PRECO * $product->PRODUTO_DESCONTO / 100);
+            $subtotal += $discountedPrice * $cartItem->ITEM_QTD;
+        }
 
-        return view('profile.cart.index')->with([
-            'products' => $products,
-            'total' => $total
-        ]);
+        return view('profile.cart.index')->with(['products' => $products, 'subtotal' => $subtotal]);
     }
 
     public function add(Product $product)
