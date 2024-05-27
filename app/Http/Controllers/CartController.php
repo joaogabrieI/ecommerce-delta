@@ -61,4 +61,21 @@ class CartController extends Controller
 
         return redirect()->back()->with('success', 'Produto removido do carrinho com sucesso!');
     }
+
+    public function update(Request $request, $productId)
+    {
+        $userId = Auth::id();
+        $quantity = $request->input('quantity');
+
+        $cartItem = Cart::where('USUARIO_ID', $userId)->where('PRODUTO_ID', $productId)->first();
+
+        if ($cartItem) {
+            $cartItem->ITEM_QTD = $quantity;
+            $cartItem->save();
+
+            return response()->json(['success' => true]);
+        }
+
+        return response()->json(['success' => false], 400);
+    }
 }

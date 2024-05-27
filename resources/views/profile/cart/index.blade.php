@@ -28,7 +28,7 @@
                                     R$ {{ number_format($cartItem->products->PRODUTO_PRECO, 2, ',', '.') }}
                                 </td>
                                 <td class="text-center cart-qtd">
-                                    <input type="number" name="qtd" value="{{ $cartItem->ITEM_QTD }}" readonly>
+                                    <input type="number" name="quantity" value="{{ $cartItem->ITEM_QTD }}" min="1" data-product-id="{{ $cartItem->PRODUTO_ID }}">
                                 </td>
                                 <td class="text-center">
                                     R$ {{ number_format($cartItem->products->PRODUTO_PRECO * $cartItem->ITEM_QTD, 2, ',', '.') }}
@@ -65,3 +65,31 @@
                 </div>
             </div>
         </section>
+        <script>
+        document.querySelectorAll('input[name="quantity"]').forEach(input => {
+            input.addEventListener('change', function() {
+                let productId = this.getAttribute('data-product-id');
+                let quantity = this.value;
+
+                fetch(`{{ url('/cart/update') }}/${productId}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    },
+                    body: JSON.stringify({ quantity: quantity })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        location.reload(); // Reload the page to see updated totals
+                    } else {
+                        alert('Erro ao atualizar a quantidade do produto.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Erro:', error);
+                });
+            });
+        });
+    </script>
