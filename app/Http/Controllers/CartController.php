@@ -13,8 +13,15 @@ class CartController extends Controller
     public function index(User $user)
     {
         $userId = Auth::User()->USUARIO_ID;
-        $products = Cart::with(['products.images'])->where('USUARIO_ID', $userId)->get();
-        return view('profile.cart.index')->with(['products' => $products]);
+        $products = Cart::with(['products.images'])->where('USUARIO_ID', $userId) ->where('ITEM_QTD', '>', 0)->get();
+        $total = $products->sum(function ($cartItem) {
+            return $cartItem->products->PRODUTO_PRECO * $cartItem->ITEM_QTD;
+        });
+
+        return view('profile.cart.index')->with([
+            'products' => $products,
+            'total' => $total
+        ]);
     }
 
     public function add(Product $product)
@@ -40,5 +47,18 @@ class CartController extends Controller
         }
 
         return redirect()->back()->with('success', 'Produto adicionado ao carrinho com sucesso!');
+    }
+
+    public function remove($productId)
+    {
+        $userId = Auth::id();
+        $cartItem = Cart::where('USUARIO_ID', $userId)->where('PRODUTO_ID', $productId)->first();
+
+        if ($cartItem) {
+            $cartItem->ITEM_QTD = 0;
+            $cartItem->save();
+        }
+
+        return redirect()->back()->with('success', 'Produto removido do carrinho com sucesso!');
     }
 }

@@ -11,7 +11,7 @@ class Cart extends Model
 {
     use HasFactory;
     protected $table = "CARRINHO_ITEM";
-    protected $primaryKey = "USUARIO_ID";
+    protected $primaryKey = "PRODUTO_ID";
     public $timestamps = false;
 
     public function products()
