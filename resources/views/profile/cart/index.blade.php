@@ -62,8 +62,8 @@
                         </tbody>
                     </table>
                     <div class="mt-3 text-end">
-                        <button class="btn btn-secondary">Continuar Comprando</button>
-                        <button class="btn btn-success">Finalizar Compra</button>
+                        <button class="btn btn-success">Continuar Comprando</button>
+                        <a href="{{route('checkout')}}" class="btn btn-secondary">Finalizar Compra</a>
                     </div>
                 </div>
             </div>
