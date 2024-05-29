@@ -18,6 +18,16 @@
                     <div class="product-name">{{ $cartItem->products->PRODUTO_NOME }}</div>
                     <div class="product-price">R$ {{ number_format($discountedPrice, 2, ',', '.') }}</div>
                     <div class="product-price">Subtotal: R$ {{ number_format($discountedPrice * $cartItem->ITEM_QTD, 2, ',', '.') }}</div>
+                    <div class="product-price">
+                        <form action="{{ route('cart.remove', $cartItem->PRODUTO_ID) }}" method="post">
+                            @csrf
+                            <button type="submit" class="btn btn-danger">
+                                <span class="material-symbols-outlined">
+                                    delete
+                                </span>
+                            </button>
+                        </form>
+                    </div>
                 </div>
                 <div class="quantity">
                     <p class="quantidade nome">Quantidade</p>

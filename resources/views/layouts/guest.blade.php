@@ -90,15 +90,6 @@
             </form>
         </div>
         @endauth
-        <nav class="nav-navbar">
-            <ul>
-                <li class="li"><a href="#"><img src="{{asset('../imgs/playstation.png')}}" alt="">Playstation</a></li>
-                <li class="li"><a href="#"><img src="{{asset('../imgs/xbox.png')}}" alt="">Xbox</a></li>
-                <input type="text" placeholder="Pesquisar" class="input-pesquisa">
-                <li class="li"><a href="#"><img src="{{asset('../imgs/nintendo.png')}}" alt="">Nintendo</a></li>
-                <li class="li"><a href="#"><img src="{{asset('../imgs/pc.png')}}" alt="">Pc</a></li>
-            </ul>
-        </nav>
     </header>
 
     {{$slot}}
