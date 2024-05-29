@@ -1,4 +1,80 @@
-<section class="cart">
+<x-guest-layout>
+<section class="section3">
+
+<div class="container carrinho-container">
+
+    <div class="section">
+    <div class="section-title nome">Produtos</div>
+    @foreach($products as $cartItem)
+            @php
+                $product = $cartItem->products;
+                $discountedPrice = $product->PRODUTO_PRECO - ($product->PRODUTO_PRECO * $product->PRODUTO_DESCONTO / 100);
+            @endphp
+        <div>
+            
+            <div class="product">
+                <img src="{{ $cartItem->products->images->first()->IMAGEM_URL }}" alt="" class="product-image">
+                <div class="product-info">
+                    <div class="product-name">{{ $cartItem->products->PRODUTO_NOME }}</div>
+                    <div class="product-price">R$ {{ number_format($discountedPrice, 2, ',', '.') }}</div>
+                    <div class="product-price">Subtotal: R$ {{ number_format($discountedPrice * $cartItem->ITEM_QTD, 2, ',', '.') }}</div>
+                </div>
+                <div class="quantity">
+                    <p class="quantidade nome">Quantidade</p>
+                    <input type="number" name="quantity" value="{{ $cartItem->ITEM_QTD }}" min="1" data-product-id="{{ $cartItem->PRODUTO_ID }}"
+                </div>
+            </div>
+        </div>
+        @endforeach
+    </div>
+
+    <div class="section">
+        <div class="section-title">Resumo</div>
+        <div class="resume">
+            <div>Valor dos Produtos: <span class="resume-value">Total: R$ {{ number_format($subtotal, 2, ',', '.') }}</span></div>
+        </div>
+
+        <a href="{{route('checkout')}}" class="btn btn-secondary">
+            <div class="button-container">
+                <button class="button-primary">Finalizar Pedido</button>
+            </div>
+        </a>
+    </div>
+
+</div>
+</section>
+<script>
+        document.querySelectorAll('input[name="quantity"]').forEach(input => {
+            input.addEventListener('change', function() {
+                let productId = this.getAttribute('data-product-id');
+                let quantity = this.value;
+
+                fetch(`{{ url('/cart/update') }}/${productId}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    },
+                    body: JSON.stringify({ quantity: quantity })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        location.reload();
+                    } else {
+                        alert('Erro ao atualizar a quantidade do produto.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Erro:', error);
+                });
+            });
+        });
+    </script>
+</x-guest-layout>
+
+
+<!-- <section class="cart">
             <div class="">
                 <h1 class="cart-title">
                     Carrinho
@@ -67,32 +143,5 @@
                     </div>
                 </div>
             </div>
-        </section>
-        <script>
-        document.querySelectorAll('input[name="quantity"]').forEach(input => {
-            input.addEventListener('change', function() {
-                let productId = this.getAttribute('data-product-id');
-                let quantity = this.value;
-
-                fetch(`{{ url('/cart/update') }}/${productId}`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                    },
-                    body: JSON.stringify({ quantity: quantity })
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        location.reload();
-                    } else {
-                        alert('Erro ao atualizar a quantidade do produto.');
-                    }
-                })
-                .catch(error => {
-                    console.error('Erro:', error);
-                });
-            });
-        });
-    </script>
+        </section> -->
+        

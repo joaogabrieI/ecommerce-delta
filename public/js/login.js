@@ -12,6 +12,6 @@ loginButton.addEventListener("click", () => {
 
 function mudarPagina() {
     setTimeout(function() {
-        window.location.href = "home.html"; // Mude "pagina2.html" para o caminho da sua próxima página
-    }, 500); // 1000 milissegundos = 1 segundo
+        window.location.href = "home.html";
+    }, 100);
 }

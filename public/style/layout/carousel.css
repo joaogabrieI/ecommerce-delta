@@ -1,0 +1,182 @@
+body {
+    font-family: Arial, sans-serif;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #01104e;
+}
+
+.carousel-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 100px;
+    width: 90%;
+}
+
+.carousel {
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid white;
+    margin-right: 20px;
+    border-radius: 30px;
+}
+
+.carousel-images {
+    display: flex;
+    transition: transform 0.9s ease-in-out;
+}
+
+.carousel-img {
+    width: 100%;
+    height: 500px;
+    /* Altere esta altura conforme necessário */
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.thumbnails {
+    display: flex;
+    flex-direction: column;
+}
+
+.thumbnail-img {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border 0.3s;
+    object-fit: cover;
+}
+
+.thumbnail-img:hover {
+    border: 2px solid #333;
+}
+
+.img-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.p-img {
+    border-radius: 20px;
+}
+
+.card-desc-prod {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 370px;
+    margin: 20px auto;
+    padding: 20px;
+    height: 450px;
+}
+
+h2 {
+    margin-top: 0;
+    text-align: center;
+}
+
+.btn1 {
+    background-color: #01b310;
+    border: none;
+    color: hsl(0, 0%, 100%);
+    padding: 20px 106px;
+    text-decoration: none;
+    font-size: 23px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn1:hover{
+    transform: scale(1.05);
+}
+
+.btn2 {
+    background-color: #01104e;
+    border: none;
+    color: hsl(0, 0%, 100%);
+    padding: 9px 10px;
+    font-size: 13px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.form input[type="text"] {
+    width: 85%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+
+
+}
+
+p {
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.carrinho {
+    position: relative;
+    top: 60px;
+    left: 15px;
+    z-index: 2;
+}
+
+.alinhar-dados {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    gap: 80px;
+}
+
+.section-cards {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    width: 80%;
+    margin-top: 150px;
+    margin-left: 10%;
+}
+
+
+.valores .debito{
+    color: red;
+    text-decoration: line-through;
+    font-size: 15px;
+    width: 100px;
+
+}
+
+.valores .credito{
+    font-size: 20px;
+    text-decoration: none;
+    color: green;
+}
+
+.resumo{
+    text-align: justify;
+    margin-top: 10px;
+    font-size: 15px;
+    background-color: rgb(235, 233, 233);
+    padding: 15px;
+    border-radius: 5px;
+}

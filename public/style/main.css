@@ -7,10 +7,11 @@
 @import "layout/container.css";
 @import "layout/camadas.css";
 @import "layout/_footer.css";
-@import "layout/_cart.css";
 @import "layout/pedidos.css";
 @import "layout/cards.css";
-
+@import "layout/carousel.css";
+@import "layout/carrinho.css";
+@import "layout/perfil.css";
 
 @import "base/_variaveis.css";
 @import "base/_typography.css";

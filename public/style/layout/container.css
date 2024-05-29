@@ -4,9 +4,8 @@
     box-shadow: 0 14px 28px rgb(16, 64, 74, 0.25), 0 10px 10px rgb(0, 0, 0, 0.22);
     position: relative;
     overflow: hidden;
-    width: 768px;
-    max-width: 100%;
-    min-height: 500px;    
+    width: 850px;
+    min-height: 550px;    
 }
 
 .container.right-panel-active .login-container{
@@ -77,4 +76,13 @@
     width: 50%;
     opacity: 0;
     z-index: 1;
+}
+
+.container-pedidos {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    margin-bottom: 80px;
+    margin-left: 10%;
 }

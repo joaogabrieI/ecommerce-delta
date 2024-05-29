@@ -118,17 +118,22 @@ button.ghost i{
 
 button.ghost i.register{
     right: 70px;
+    top: 50px;
 }
 
 button.ghost i.login{
     left: 70px;
+    top: 50px;
 }
 button.ghost:hover i.register{
-    right: 40px;
+    right: 30px;
+    top: 50px;
+    opacity: 1;
 }
 
 button.ghost:hover i.login{
-    left: 40px;
+    left: 30px;
+    top: 50px;
     opacity: 1;
 }
 
