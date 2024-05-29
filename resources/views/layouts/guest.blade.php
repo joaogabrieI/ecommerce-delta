@@ -13,8 +13,13 @@
 
 </head>
 
+
 <body>
-    <header>
+
+    <header class="header2">
+
+        <section class="pai">
+
         <div class="sidebar">
             <div class="logo-content">
                 <div class="logo">
@@ -69,27 +74,33 @@
             </nav>
         </div>
 
-        <div>
-            <img src="{{asset('../imgs/logo.jpg')}}" alt="" class="logo-principal">
+            <div class="input-container">
+                <i class='bx bx-search'></i>
+                <input type="text" placeholder="Pesquisar" class="input-pesquisa">
+            </div>
+
+        </section>
+
+        <div class="logo-container">
+            <img src="../imgs/logo.jpg" alt="" class="logo-principal2">
         </div>
 
         @guest
-        <a href="{{route('login')}}">
-            <div class="cart entrar">
-                <input type="button" name="Entrar" value="Entrar" class="btn-log">
-                <!-- <img src="../imgs/Carrinho.png" alt="" class="cart"> -->
-            </div>
-        </a>
+        <div class="cart entrar">
+            <a href="{{route('login')}}"> <input type="button" name="Entrar" value="Entrar" class="btn-log"></a>
+            <i class='bx bx-cart'></i>
+        </div>
         @endguest
         @auth
         <div class="cart entrar">
             <form action="{{route('logout')}}" method="post">
                 @csrf
                 <input type="submit" name="Entrar" value="Sair" class="btn-log">
-                <!-- <img src="../imgs/Carrinho.png" alt="" class="cart"> -->
             </form>
+            <i class='bx bx-cart'></i>
         </div>
         @endauth
+
     </header>
 
     {{$slot}}
