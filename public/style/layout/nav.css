@@ -409,3 +409,7 @@ header{
     font-size: 20px;
     color: #888;
 }
+
+.header-pedidos{
+    top: 0;
+}

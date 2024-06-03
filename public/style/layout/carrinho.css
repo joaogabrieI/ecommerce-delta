@@ -1,23 +1,9 @@
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
-    gap: 100px;
-}
-
-.carrinho-container{
-    margin-top: 10%;
-    background-color: transparent;
-    width: 80%;
-    border-radius: 0;
-}
-
 .section {
     background-color: #0E3873;
     padding: 20px;
     border-radius: 10px;
-    border: 1px solid white;
+    border: 1px solid rgba(255, 255, 255, 0.267);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.9);
 }
 
 .product {
@@ -25,6 +11,9 @@
     align-items: center;
     gap: 20px;
     margin-bottom: 50px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.9);
+    border-radius: 20px;
+    padding: 10px;
 }
 
 .product-image {
@@ -66,14 +55,6 @@ input {
     border-radius: 5px;
 }
 
-button {
-    background-color: #f58025;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
 
 .resume {
     background-color: #0E3873;
@@ -90,26 +71,6 @@ button {
     color: #f58025;
 }
 
-.button-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-.button-primary {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 70px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 20px;
-}
-
-.button-primary:hover{
-    padding: none;
-}
-
 .quantidade{
     margin-top: -80px;
     margin-bottom: 60px;
@@ -124,6 +85,3 @@ button {
     align-items: center;
 }
 
-.carrinho-container{
-    box-shadow: none;
-}

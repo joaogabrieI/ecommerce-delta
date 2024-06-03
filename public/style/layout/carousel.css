@@ -75,7 +75,7 @@ body {
     max-width: 370px;
     margin: 20px auto;
     padding: 20px;
-    height: 450px;
+    height: 100%;
 }
 
 h2 {
@@ -153,7 +153,7 @@ p {
     justify-content: center;
     gap: 100px;
     width: 80%;
-    margin-top: 150px;
+    margin-top: 200px;
     margin-left: 10%;
 }
 

@@ -31,7 +31,7 @@
                 </div>
                 <div class="quantity">
                     <p class="quantidade nome">Quantidade</p>
-                    <input type="number" name="quantity" value="{{ $cartItem->ITEM_QTD }}" min="1" data-product-id="{{ $cartItem->PRODUTO_ID }}"
+                    <input type="number" name="quantity" value="{{ $cartItem->ITEM_QTD }}" min="1" data-product-id="{{ $cartItem->PRODUTO_ID }}">
                 </div>
             </div>
         </div>

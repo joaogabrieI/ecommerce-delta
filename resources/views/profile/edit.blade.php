@@ -1,135 +1,155 @@
 <x-guest-layout>
-    <main class="d-flex justify-content-sm-around mb-5">
-        <section class="user-data d-flex align-items-center justify-content-center">
-            <div>
-                <div class="user-title d-flex align-items-center">
-                    <span class="material-symbols-outlined"> person </span>
-                    <h2>Meus Dados</h2>
-                </div>
-                @isset($mensagemSucesso)
-                <div class="alert alert-success">
-                    {{$mensagemSucesso}}
-                </div>
-                @endisset
-                <form method="post" action="{{ route('profile.update', $user->USUARIO_ID) }}">
-                    @csrf
-                    @method('patch')
-                    <div class="form-group">
-                        <label for="nome" class="user-label">Nome Completo</label>
-                        <input type="text" name="name" value="{{$user->USUARIO_NOME}}" class="form-control" />
-                    </div>
 
-                    <div class="form-group">
-                        <label for="email" class="user-label">Email</label>
-                        <input type="email" name="email" value="{{$user->USUARIO_EMAIL}}" class="form-control" />
-                    </div>
+    <!-- minha conta -->
 
-                    <div class="form-group">
-                        <label for="cpf" class="user-label">CPF</label>
-                        <input type="text" name="cpf" id="" value="{{$user->USUARIO_CPF}}" disabled class="form-control" />
-                    </div>
+    <section class="section-minha-c">
 
-                    <button class="user-btn-edit-address">Alterar os dados</button>
-                </form>
-
-                <div class="user-data-remove text-center">
-                    <form method="post" action="{{ route('profile.destroy') }}">
-                        @csrf
-                        @method('delete')
-                        <button class="user-data-remove-link">Excluir conta</button>
-                    </form>
-                </div>
-
-            </div>
-        </section>
-
-        <section class="user-address d-flex align-items-center justify-content-center">
-            <div>
-                <div class="user-address-title d-flex align-items-center">
-                    <span class="material-symbols-outlined"> location_on </span>
-                    <h2>Endereços</h2>
-                </div>
-                @isset($enderecoSucesso)
-                <div class="alert alert-success">
-                    {{$enderecoSucesso}}
-                </div>
-                @endisset
+        <main class="d-flex justify-content-sm-around mb-5" id="main">
+            <section class="user-data d-flex align-items-center justify-content-center">
                 <div>
-                    @foreach ($addresses as $address)
-                    <div class="user-address-card">
-                        <h3 class="user-address-card-title">{{$address->ENDERECO_NOME}}</h3>
-                        <p class="user-address-card-text">{{$address->ENDERECO_LOGRADOURO}},
-                            {{$address->ENDERECO_NUMERO}} - @isset($address->ENDERECO_COMPLEMENTO) - @endisset
-                            {{$address->ENDERECO_CIDADE}} - {{$address->ENDERECO_ESTADO}} - CEP: {{$address->ENDERECO_CEP}}
-                        </p>
-
-                        <div class="d-flex">
-                            <a href="{{route('address.edit', $address->ENDERECO_ID)}}" class="open-modal user-address-edit-btn">Editar</a>
-                            <form action="{{route('address.destroy', $address->ENDERECO_ID)}}" method="post" class="">
-                                @csrf
-                                @method('delete')
-                                <button class="user-address-delete-btn">Excluir</button>
-                            </form>
-                        </div>
+                    <div class="user-title d-flex align-items-center">
+                        <span class="material-symbols-outlined"> person </span>
+                        <h2>Meus Dados</h2>
                     </div>
-                    @endforeach
-
-                    <button class="user-address-card-btn open-modal-address">
-                        Adicionar Endereço
-                    </button>
-
-                    <dialog class="dialog-add-address p-3">
-                        <div class="d-flex align-items-center">
-                            <span class="material-symbols-outlined"> location_on </span>
-                            <h3>Adicionar novo endereço</h3>
+                    @isset($mensagemSucesso)
+                    <div class="alert alert-success">
+                        {{$mensagemSucesso}}
+                    </div>
+                    @endisset
+                    <form method="post" action="{{ route('profile.update', $user->USUARIO_ID) }}">
+                        @csrf
+                        @method('patch')
+                        <div class="form-group">
+                            <label for="nome" class="user-label">Nome Completo</label>
+                            <input type="text" name="name" value="{{$user->USUARIO_NOME}}" class="form-control" />
                         </div>
-                        <form action="{{route('address.store', $user->USUARIO_ID)}}" method="post" class="modal-form d-flex-column">
+
+                        <div class="form-group">
+                            <label for="email" class="user-label">Email</label>
+                            <input type="email" name="email" value="{{$user->USUARIO_EMAIL}}" class="form-control" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cpf" class="user-label">CPF</label>
+                            <input type="text" name="cpf" id="CPF" value="{{$user->USUARIO_CPF}}" disabled class="form-control" />
+                        </div>
+
+                        <button class="user-btn-edit-address">Alterar os dados</button>
+                    </form>
+
+                    <div class="user-data-remove text-center">
+                        <form method="post" action="{{ route('profile.destroy') }}">
                             @csrf
-                            <div class="form-group">
-                                <label for="identificacao" class="dialog-form-label">Identificação</label>
-                                <input type="text" name="identificacao" id="" class="form-control">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="logradouro" class="dialog-form-label">Logradouro</label>
-                                <input type="text" name="logradouro" id="" class="form-control">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="numero" class="dialog-form-label">Número</label>
-                                <input type="text" name="numero" id="" class="form-control">
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="complemento" class="dialog-form-label">Complemento</label>
-                                <input type="text" name="complemento" id="" class="form-control">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="cep" class="dialog-form-label">CEP</label>
-                                <input type="text" name="cep" id="" class="form-control">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="cidade" class="dialog-form-label">Cidade</label>
-                                <input type="text" name="cidade" id="" class="form-control">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="estado" class="dialog-form-label">Estado</label>
-                                <input type="text" name="estado" id="" class="form-control">
-                            </div>
-
-                            <div class="dialog-container-buttons">
-                                <button type="submit" class="mt-2 dialog-button-edit">Editar</button>
-                            </div>
+                            @method('delete')
+                            <button class="user-data-remove-link">Excluir conta</button>
                         </form>
-                        <div class="d-flex align-items-center justify-content-center">
-                            <button class="dialog-address-button-close mt-2">Fechar</button>
-                        </div>
-                    </dialog>
+                    </div>
+
                 </div>
-            </div>
-        </section>
-    </main>
+            </section>
+
+            <section class="user-address d-flex align-items-center justify-content-center">
+                <div class="pai-endereco">
+                    <div class="user-address-title d-flex align-items-center">
+                        <span class="material-symbols-outlined"> location_on </span>
+                        <h2>Endereços</h2>
+                    </div>
+                    @isset($enderecoSucesso)
+                    <div class="alert alert-success">
+                        {{$enderecoSucesso}}
+                    </div>
+                    @endisset
+                    <div class="valores-endereco">
+                        @foreach ($addresses as $address)
+                        <div class="user-address-card">
+                            <h3 class="user-address-card-title">{{$address->ENDERECO_NOME}}</h3>
+
+                            <div class="testesste">
+                                <p class="user-address-card-text"> Logradouro: {{$address->ENDERECO_LOGRADOURO}},
+                                    Número: {{$address->ENDERECO_NUMERO}} - Cidade: @isset($address->ENDERECO_COMPLEMENTO) - @endisset
+                                    {{$address->ENDERECO_CIDADE}} Estado: {{$address->ENDERECO_ESTADO}} - CEP: {{$address->ENDERECO_CEP}}
+                                </p>
+
+                                <div class="d-flex">
+                                    <a href="{{route('address.edit', $address->ENDERECO_ID)}}" class="open-modal user-address-edit-btn">Editar</a>
+                                    <form action="{{route('address.destroy', $address->ENDERECO_ID)}}" method="post" class="">
+                                        @csrf
+                                        @method('delete')
+                                        <button class="user-address-delete-btn" id="btn-ex">Excluir</button>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+                        @endforeach
+
+                        <button class="user-address-card-btn open-modal-address">
+                            Adicionar Endereço
+                        </button>
+
+                        <dialog class="dialog-add-address p-3">
+                            <div class="dialog">
+                                <div class="modal-endereco">
+
+                                    <div class="d-flex align-items-center">
+                                        <span class="material-symbols-outlined"> location_on </span>
+                                        <h3>Adicionar novo endereço</h3>
+                                    </div>
+                                    <form action="{{route('address.store', $user->USUARIO_ID)}}" method="post" class="modal-form d-flex-column">
+                                        @csrf
+                                        <div class="form-group">
+                                            <label for="identificacao" class="dialog-form-label">Identificação</label>
+                                            <input type="text" name="identificacao" id="" class="form-control">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="logradouro" class="dialog-form-label">Logradouro</label>
+                                            <input type="text" name="logradouro" id="" class="form-control">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="numero" class="dialog-form-label">Número</label>
+                                            <input type="text" name="numero" id="" class="form-control">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="complemento" class="dialog-form-label">Complemento</label>
+                                            <input type="text" name="complemento" id="" class="form-control">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="cep" class="dialog-form-label">CEP</label>
+                                            <input type="text" name="cep" id="" class="form-control">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="cidade" class="dialog-form-label">Cidade</label>
+                                            <input type="text" name="cidade" id="" class="form-control">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="estado" class="dialog-form-label">Estado</label>
+                                            <input type="text" name="estado" id="" class="form-control">
+                                        </div>
+
+                                        <div class="dialog-container-buttons">
+                                            <button type="submit" class="mt-2 dialog-button-edit">Salvar</button>
+                                        </div>
+
+                                    </form>
+
+                                    <div class="d-flex align-items-center justify-content-center">
+                                        <button class="dialog-address-button-close mt-2">Fechar</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </dialog>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+    </section>
+
 </x-guest-layout>

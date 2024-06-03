@@ -1,6 +1,8 @@
 <x-guest-layout>
-    <section class="section2 produtos_produtos">
 
+    <!-- Produtos geral-->
+    
+    <section class="section2 produtos_produtos">
 
         <div class="tabela-navegacao">
             <div class="console">
@@ -15,7 +17,7 @@
 
         </div>
 
-        <div class="cards-pai cardsPai_produtos" id="cardsPai">
+        <div class="cards-pai2 cardsPai_produtos" id="cardsPai">
             @foreach($products as $product)
             @php
             // Calculando o preço com desconto
@@ -24,8 +26,8 @@
             @endphp
             @if($product->images->isNotEmpty())
             @foreach($product->images as $image)
-            <div class="card" id="modeloCard">
-                <div class="card-image"><img class="imgs-cards" src="{{$image->IMAGEM_URL}}" height="150px" width="100px" alt=""></div>
+            <div class="card2" id="modeloCard2">
+                <div class="card-image2"><img class="imgs-cards" src="{{$image->IMAGEM_URL}}" height="150px" width="100px" alt=""></div>
                 <div class="titulo-produto">
                     <h2>{{$product->PRODUTO_NOME}}</h2>
                 </div>
@@ -36,7 +38,7 @@
                 </div>
                 <div class="card-buttons">
                     <a href="{{route('product.show', $product->PRODUTO_ID)}}">
-                        <button class="card-button" id="comp">Comprar</button>
+                        <button class="card-button" id="comp">Ver Detalhes</button>
                     </a>
                     <form action="{{route('cart.add', $product->PRODUTO_ID)}}" method="post">
                         @csrf
@@ -46,8 +48,8 @@
             </div>
             @endforeach
             @else
-            <div class="card" id="modeloCard">
-                <div class="card-image"><img class="imgs-cards" src="{{asset('imgs/default.jpg')}}" height="150px" width="100px" alt=""></div>
+            <div class="card2" id="modeloCard2">
+                <div class="card-image2"><img class="imgs-cards" src="{{asset('imgs/default.jpg')}}" height="150px" width="100px" alt=""></div>
                 <div class="titulo-produto">
                     <h2>{{$product->PRODUTO_NOME}}</h2>
                 </div>
@@ -58,7 +60,7 @@
                 </div>
                 <div class="card-buttons">
                     <a href="{{route('product.show', $product->PRODUTO_ID)}}">
-                        <button class="card-button" id="comp">Comprar</button>
+                        <button class="card-button" id="comp">Ver Detalhes</button>
                     </a>
                     <form action="{{route('cart.add', $product->PRODUTO_ID)}}" method="post">
                         @csrf
@@ -71,4 +73,5 @@
         </div>
 
     </section>
+
 </x-guest-layout>

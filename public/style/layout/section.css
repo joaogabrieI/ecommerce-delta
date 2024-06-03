@@ -26,7 +26,7 @@
 }
 
 .div0 p{
-    font-size: clamp(0.5rem, 1.5vw, 15rem);
+    font-size: clamp(0.5rem, 1.4vw, 15rem);
     color: white;
 }
 
@@ -90,7 +90,7 @@
     width: 30%;
     position: fixed;
     margin-left: -50%;
-    height: 50%;
+    height: 39%;
 }
 
 .console-op{
@@ -167,3 +167,136 @@
     margin-top: 10%;
     margin-bottom: 20px;
 }
+
+#main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    margin-top: 200px;
+    gap: 200px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.199);
+    background-color: #002b4b;
+}
+
+#CPF{
+    color: white;
+}
+
+.user-title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.user-address-card{
+    background-color: rgb(155, 152, 152);
+    margin-bottom: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.9);
+    border-radius: 15px;
+}
+
+.user-address-card h3{
+    font-size: 30px;
+    color: white;
+
+}
+
+.user-address-title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.testesste{
+    background-color: whitesmoke;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.testesste p{
+    color: black;
+    font-size: 20px;
+}
+
+.user-address-edit-btn{
+    text-decoration: none;
+    list-style: none;
+    color: black;
+    font-size: 20px;
+    background-color: rgb(212, 210, 210);
+    padding: 2px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.7);
+    border-radius: 5px;
+    position: absolute;
+    margin-top: 13px;
+    width: 5%;
+    text-align: center;
+    margin-left: 20px;
+}
+
+.scroll-buttons{
+    margin-top: 53%;
+}
+
+.main-pai-pw{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 200px;
+    
+}
+
+.section-pai-pw{
+    padding: 50px;
+    background-color: #002b4b;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.9);
+    border-radius: 20px;
+}
+
+.bx-user-circle{
+    font-size: 200px;
+    color: rgb(255, 255, 255);
+    margin-bottom: 50px;
+}
+
+.nome-campos-pw{
+    font-size: clamp(0.5rem, 1.5vw, 5rem);
+    color: rgb(182, 181, 181);
+}
+
+.section-minha-c{
+    display: flex;
+    justify-content: center;
+}
+
+.main-editar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.section-main-editar{
+    margin-top: 170px;
+    padding: 30px;
+    background-color: #002b4b;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    color: white;
+    font-size: clamp(0.5rem, 1.3vw, 5rem);
+}
+/* 
+.d-flex-column{
+    display: flex;
+    gap: 50px;
+} */
+
+

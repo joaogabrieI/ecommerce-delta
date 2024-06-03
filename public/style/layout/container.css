@@ -86,3 +86,22 @@
     margin-bottom: 80px;
     margin-left: 10%;
 }
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 100px;
+}
+
+.carrinho-container{
+    margin-top: 10%;
+    background-color: transparent;
+    width: 80%;
+    border-radius: 0;
+}
+
+.carrinho-container{
+    box-shadow: none;
+}

@@ -33,113 +33,140 @@ document.addEventListener("DOMContentLoaded", function () {
             nav.classList.remove("scrolled");
         }
     });
+
+
+
+
+
+    const container = document.querySelector(".cards-pai");
+
+    // Função para rolar para a esquerda
+    document
+        .querySelector("#scroll-left")
+        .addEventListener("click", function () {
+            container.scrollBy({
+                top: 0,
+                left: -1250,
+                behavior: "smooth",
+            });
+        });
+
+    // Função para rolar para a direita
+    document
+        .querySelector("#scroll-right")
+        .addEventListener("click", function () {
+            container.scrollBy({
+                top: 0,
+                left: 1250,
+                behavior: "smooth",
+            });
+        });
+        
 });
-
-
 
 // carousel
 
-document.addEventListener('DOMContentLoaded', function () {
-    const carouselImages = document.querySelector('.carousel-images');
-    const images = document.querySelectorAll('.carousel-images img');
-    const thumbnails = document.querySelectorAll('.thumbnails img');
+document.addEventListener("DOMContentLoaded", function () {
+    const carouselImages = document.querySelector(".carousel-images");
+    const images = document.querySelectorAll(".carousel-images img");
+    const thumbnails = document.querySelectorAll(".thumbnails img");
     let imageWidth = images[1].clientWidth; // Width of one image (non-clone)
     let currentIndex = 1;
     let isTransitioning = false;
-  
+
     function updateImageWidth() {
         imageWidth = images[1].clientWidth;
     }
-  
+
     function updateCarousel() {
         const offset = -currentIndex * imageWidth;
         carouselImages.style.transform = `translateX(${offset}px)`;
         isTransitioning = true;
     }
-  
+
     function showImage(index) {
         if (isTransitioning) return;
         currentIndex = index;
         updateCarousel();
     }
-  
+
     function checkIndex() {
         isTransitioning = false;
-        if (images[currentIndex].classList.contains('clone')) {
-            carouselImages.style.transition = 'none';
-            currentIndex = (currentIndex === images.length - 1) ? 1 : images.length - 2;
+        if (images[currentIndex].classList.contains("clone")) {
+            carouselImages.style.transition = "none";
+            currentIndex =
+                currentIndex === images.length - 1 ? 1 : images.length - 2;
             const offset = -currentIndex * imageWidth;
             carouselImages.style.transform = `translateX(${offset}px)`;
             setTimeout(() => {
-                carouselImages.style.transition = 'transform 0.5s ease-in-out';
+                carouselImages.style.transition = "transform 0.5s ease-in-out";
             }, 50);
         }
     }
-  
+
     function nextImage() {
         if (isTransitioning) return;
         currentIndex++;
         updateCarousel();
     }
-  
+
     thumbnails.forEach((thumbnail, index) => {
-        thumbnail.addEventListener('click', () => {
+        thumbnail.addEventListener("click", () => {
             showImage(index + 1);
         });
     });
-  
-    carouselImages.addEventListener('transitionend', checkIndex);
-  
+
+    carouselImages.addEventListener("transitionend", checkIndex);
+
     setInterval(nextImage, 3000); // Change image every 3 seconds
-  
-    window.addEventListener('resize', () => {
+
+    window.addEventListener("resize", () => {
         updateImageWidth();
         const offset = -currentIndex * imageWidth;
-        carouselImages.style.transition = 'none';
+        carouselImages.style.transition = "none";
         carouselImages.style.transform = `translateX(${offset}px)`;
         setTimeout(() => {
-            carouselImages.style.transition = 'transform 0.5s ease-in-out';
+            carouselImages.style.transition = "transform 0.5s ease-in-out";
         }, 0);
     });
-  
+
     updateImageWidth();
     showImage(currentIndex);
-  });
-  
-  var btn = document.querySelector("#btn");
-  var btn_s = document.querySelector("#btn");
-  
-  var sidebar = document.querySelector(".sidebar");
-  var searchBtn = document.querySelector(".bx-search");
-  var navList = document.querySelector(".nav-list");
-  
-  btn.onclick = function() {
-      sidebar.classList.toggle("active");
-      navList.classList.toggle("active");
-  }
-  
-  
-  btn_S.onclick = function() {
+});
+
+var btn = document.querySelector("#btn");
+var btn_s = document.querySelector("#btn");
+
+var sidebar = document.querySelector(".sidebar");
+var searchBtn = document.querySelector(".bx-search");
+var navList = document.querySelector(".nav-list");
+
+btn.onclick = function () {
     sidebar.classList.toggle("active");
     navList.classList.toggle("active");
-  }
-  
-  searchBtn.onclick = function() {
-      sidebar.classList.toggle("active");
-      navList.classList.toggle("active");
-  }
-  
-  const cards = document.querySelectorAll(".card");
-  cards.forEach((card) => {
-    card.addEventListener("mouseover", function() {
-      if (!card.classList.contains("desativar")) {
-        card.classList.add("hover");
-      }
+};
+
+btn_S.onclick = function () {
+    sidebar.classList.toggle("active");
+    navList.classList.toggle("active");
+};
+
+searchBtn.onclick = function () {
+    sidebar.classList.toggle("active");
+    navList.classList.toggle("active");
+};
+
+const cards = document.querySelectorAll(".card");
+cards.forEach((card) => {
+    card.addEventListener("mouseover", function () {
+        if (!card.classList.contains("desativar")) {
+            card.classList.add("hover");
+        }
     });
-  
-    card.addEventListener("mouseout", function() {
-      if (!card.classList.contains("desativar")) {
-        card.classList.remove("hover");
-      }
+
+    card.addEventListener("mouseout", function () {
+        if (!card.classList.contains("desativar")) {
+            card.classList.remove("hover");
+        }
     });
-  });
+});
