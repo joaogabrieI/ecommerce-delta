@@ -12,7 +12,7 @@
                         <h2>Meus Dados</h2>
                     </div>
                     @isset($mensagemSucesso)
-                    <div class="alert alert-success">
+                    <div class="alert alert-success alert-link">
                         {{$mensagemSucesso}}
                     </div>
                     @endisset
@@ -55,7 +55,7 @@
                         <h2>Endereços</h2>
                     </div>
                     @isset($enderecoSucesso)
-                    <div class="alert alert-success">
+                    <div class="alert alert-success alert-link">
                         {{$enderecoSucesso}}
                     </div>
                     @endisset
@@ -87,7 +87,7 @@
                             Adicionar Endereço
                         </button>
 
-                        <dialog class="dialog-add-address p-3">
+                        <!-- <dialog class="dialog-add-address p-3">
                             <div class="dialog">
                                 <div class="modal-endereco">
 
@@ -144,7 +144,7 @@
 
                                 </div>
                             </div>
-                        </dialog>
+                        </dialog> -->
                     </div>
                 </div>
             </section>
