@@ -172,9 +172,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 60%;
+    width: 70%;
     margin-top: 200px;
-    gap: 200px;
+    gap: 100px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.7);
     padding: 20px;
     border-radius: 10px;

@@ -4,7 +4,7 @@
     <main class="main-pai-pw">
 
         <section class="section-pai-pw">
-            
+
             <i class='bx bx-user-circle'></i>
 
             <form method="POST" action="{{ route('password.update') }}">
@@ -41,4 +41,5 @@
             </form>
         </section>
     </main>
-    </x-guest-app>
+
+</x-guest-app>

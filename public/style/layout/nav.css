@@ -333,11 +333,12 @@ header{
 }
 
 .logo-principal2{
-    width: 114.17px;
+    width: 94.86px;
     border-radius: 50%;
     margin-top: 20px;
     margin-bottom: 20px;
-    margin-left: -970px;
+    margin-left: -800px;
+    /* margin-left: -970px; */
 }
 
 .btn-log{
