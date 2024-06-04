@@ -29,6 +29,12 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:USUARIO,USUARIO_EMAIL'],
+            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+        ]);
+        
         $user = User::create([
             'USUARIO_NOME' => $request->name,
             'USUARIO_EMAIL' => $request->email,
@@ -38,6 +44,6 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect(route('dashboard', absolute: false));
+        return redirect(route('profile.edit', absolute: false));
     }
 }
