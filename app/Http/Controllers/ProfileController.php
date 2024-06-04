@@ -9,6 +9,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Validation\Rule;
 use Illuminate\View\View;
 
 class ProfileController extends Controller
@@ -31,6 +32,10 @@ class ProfileController extends Controller
 
     public function update(Request $request, User $user): RedirectResponse
     {
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', Rule::unique('USUARIO', 'USUARIO_EMAIL')->ignore(Auth::user()->USUARIO_ID, 'USUARIO_ID')]
+        ]);
         $user->fill([
             'USUARIO_NOME' => $request->name,
             "USUARIO_EMAIL" => $request->email

@@ -11,6 +11,7 @@
                         <span class="material-symbols-outlined"> person </span>
                         <h2>Meus Dados</h2>
                     </div>
+                    
                     @isset($mensagemSucesso)
                     <div class="alert alert-success alert-link">
                         {{$mensagemSucesso}}
@@ -22,11 +23,13 @@
                         <div class="form-group">
                             <label for="nome" class="user-label">Nome Completo</label>
                             <input type="text" name="name" value="{{$user->USUARIO_NOME}}" class="form-control" />
+                            <x-input-error :messages="$errors->get('name')" class="mt-2" />
                         </div>
 
                         <div class="form-group">
                             <label for="email" class="user-label">Email</label>
                             <input type="email" name="email" value="{{$user->USUARIO_EMAIL}}" class="form-control" />
+                            <x-input-error :messages="$errors->get('email')" class="mt-2" />
                         </div>
 
                         <div class="form-group">
