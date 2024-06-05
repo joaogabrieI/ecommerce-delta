@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>category</title>
+    <title>Delta Games</title>
     <link rel="stylesheet" href="{{asset('style/main.css')}}">
+    <link rel="icon" type="image/x-icon" href="{{asset('imgs/favicon.ico')}}">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
