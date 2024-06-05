@@ -87,7 +87,7 @@
         @guest
         <div class="cart entrar">
             <a href="{{route('login')}}"> <input type="button" name="Entrar" value="Entrar" class="btn-log"></a>
-            <i class='bx bx-cart'></i>
+            
         </div>
         @endguest
         @auth
@@ -96,7 +96,7 @@
                 @csrf
                 <input type="submit" name="Entrar" value="Sair" class="btn-log">
             </form>
-            <i class='bx bx-cart'></i>
+            <a href="{{route('cart')}}"><i class='bx bx-cart'></i></a>
         </div>
         @endauth
 

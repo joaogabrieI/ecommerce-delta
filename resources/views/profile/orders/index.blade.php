@@ -96,7 +96,7 @@
                 @csrf
                 <input type="submit" name="Entrar" value="Sair" class="btn-log">
             </form>
-            <i class='bx bx-cart'></i>
+            <a href="{{route('cart')}}"><i class='bx bx-cart'></i></a>
         </div>
         @endauth
 
