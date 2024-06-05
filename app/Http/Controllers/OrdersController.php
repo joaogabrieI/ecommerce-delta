@@ -12,10 +12,14 @@ use App\Models\OrderItem;
 
 class OrdersController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        $success = $request->session()->get('success');
+        $userId = Auth::id();
+        $orders = Order::with(['items.product', 'status', 'address'])->where('USUARIO_ID', $userId)->get();
         return view('profile.orders.index')->with([
-            'sucess' => $sucess
+            'sucess' => $success,
+            'orders' => $orders
         ]);
     }
 

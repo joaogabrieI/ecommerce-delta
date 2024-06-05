@@ -104,86 +104,40 @@
     </header>
 
     <section class="section-pedidos">
-    @isset($enderecoSucesso)
+    @isset($sucess)
         <div class="alert alert-success alert-link">
-            {{$enderecoSucesso}}
+            {{$sucess}}
         </div>
     @endisset
+
+    @foreach($orders as $order)
         <div class="container-pedidos">
             <div class="info">
                 <div class="info-item">
                     <p class="info-title">Número do Pedido</p>
-                    <p class="info-data">#007007</p>
+                    <p class="info-data">#{{$order->PEDIDO_ID}}</p>
                 </div>
                 <div class="info-item">
                     <p class="info-title">Status</p>
-                    <p class="info-data">Cancelado</p>
+                    <p class="info-data">{{$order->status->STATUS_DESC}}</p>
                 </div>
                 <div class="info-item">
                     <p class="info-title">Data</p>
-                    <p class="info-data">01/01/2001</p>
+                    <p class="info-data">{{ $order->PEDIDO_DATA }}</p>
                 </div>
                 <div class="info-item">
-                    <p class="info-title">Pagamento</p>
-                    <p class="info-data">PIX</p>
+                    <p class="info-title">Produto</p>
+                    @foreach($order->items as $item)
+                        <p>{{ $item->product->PRODUTO_NOME }} - {{ $item->ITEM_QTD }} x R$ {{ number_format($item->ITEM_PRECO, 2, ',', '.') }}</p>
+                    @endforeach
                 </div>
                 <div class="info-item">
-                    <p class="info-title">Detalhes do Pedido</p>
-                    <p class="info-data">-</p>
+                    <p class="info-title">Total do pedido</p>
+                    <p class="info-data">R$ {{ number_format($order->items->sum(function($item) { return $item->ITEM_QTD * $item->ITEM_PRECO; }), 2, ',', '.') }}</p>
                 </div>
             </div>
         </div>
-
-        <div class="container-pedidos">
-            <div class="info">
-                <div class="info-item">
-                    <p class="info-title">Número do Pedido</p>
-                    <p class="info-data">#007008</p>
-                </div>
-                <div class="info-item">
-                    <p class="info-title">Status</p>
-                    <p class="info-data">Em andamento</p>
-                </div>
-                <div class="info-item">
-                    <p class="info-title">Data</p>
-                    <p class="info-data">02/02/2002</p>
-                </div>
-                <div class="info-item">
-                    <p class="info-title">Pagamento</p>
-                    <p class="info-data">Cartão de Crédito</p>
-                </div>
-                <div class="info-item">
-                    <p class="info-title">Detalhes do Pedido</p>
-                    <p class="info-data">-</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="container-pedidos">
-            <div class="info">
-                <div class="info-item">
-                    <p class="info-title">Número do Pedido</p>
-                    <p class="info-data">#007008</p>
-                </div>
-                <div class="info-item">
-                    <p class="info-title">Status</p>
-                    <p class="info-data">Em andamento</p>
-                </div>
-                <div class="info-item">
-                    <p class="info-title">Data</p>
-                    <p class="info-data">02/02/2002</p>
-                </div>
-                <div class="info-item">
-                    <p class="info-title">Pagamento</p>
-                    <p class="info-data">Cartão de Crédito</p>
-                </div>
-                <div class="info-item">
-                    <p class="info-title">Detalhes do Pedido</p>
-                    <p class="info-data">-</p>
-                </div>
-            </div>
-        </div>
-
+    @endforeach
     </section>
 
     <footer>
