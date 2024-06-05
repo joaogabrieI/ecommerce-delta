@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Address;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use App\Models\Cart;
 use App\Models\Order;
 use App\Models\OrderItem;
@@ -57,24 +58,26 @@ class OrdersController extends Controller
             $total += $discountedPrice * $cartItem->ITEM_QTD;
         }
 
-        dd($order = Order::create([
-            'USUARIO_ID' => $userId,
-            'STATUS_ID' => 1, 
-            'PEDIDO_DATA' => now(),
-            'ENDERECO_ID' => $addressId,
-        ]));
-
-        foreach ($cartItems as $cartItem) {
-            $product = $cartItem->products;
-            $discountedPrice = $product->PRODUTO_PRECO - ($product->PRODUTO_PRECO * $product->PRODUTO_DESCONTO / 100);
-            
-            OrderItem::create([
-                'PRODUTO_ID' => $cartItem->PRODUTO_ID,
-                'PEDIDO_ID' => $order->PEDIDO_ID,
-                'ITEM_QTD' => $cartItem->ITEM_QTD,
-                'ITEM_PRECO' => $discountedPrice,
+        DB::transaction(function () use ($userId, $addressId, $cartItems, $total) {
+            $order = Order::create([
+                'USUARIO_ID' => $userId,
+                'STATUS_ID' => 1,
+                'PEDIDO_DATA' => now(),
+                'ENDERECO_ID' => $addressId,
             ]);
-        }
+
+            foreach ($cartItems as $cartItem) {
+                $product = $cartItem->products;
+                $discountedPrice = $product->PRODUTO_PRECO - ($product->PRODUTO_PRECO * $product->PRODUTO_DESCONTO / 100);
+
+                OrderItem::create([
+                    'PRODUTO_ID' => $cartItem->PRODUTO_ID,
+                    'PEDIDO_ID' => $order->PEDIDO_ID,
+                    'ITEM_QTD' => $cartItem->ITEM_QTD,
+                    'ITEM_PRECO' => $discountedPrice,
+                ]);
+            }
+        });
 
         return redirect()->route('orders.index')->with('success', 'Pedido realizado com sucesso.');
     }
