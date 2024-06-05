@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit</title>
     <link rel="stylesheet" href="{{asset('style/main.css')}}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
@@ -112,21 +113,25 @@
                     <div class="form-group">
                         <label for="identificacao">Identificação</label>
                         <input type="text" name="identificacao" id="" class="form-control" value="{{$address->ENDERECO_NOME}}">
+                        <x-input-error :messages="$errors->get('identificacao')" class="mt-2" />
                     </div>
 
                     <div class="form-group">
                         <label for="logradouro">Logradouro</label>
                         <input type="text" name="logradouro" id="" class="form-control" value="{{$address->ENDERECO_LOGRADOURO}}">
+                        <x-input-error :messages="$errors->get('logradouro')" class="mt-2" />
                     </div>
 
                     <div class="form-group">
                         <label for="numero">Número</label>
                         <input type="text" name="numero" id="" class="form-control" value="{{$address->ENDERECO_NUMERO}}">
+                        <x-input-error :messages="$errors->get('numero')" class="mt-2" />
                     </div>
 
                     <div class="form-group">
                         <label for="complemento">Complemento</label>
                         <input type="text" name="complemento" id="" class="form-control" value="{{$address->ENDERECO_COMPLEMENTO}}">
+                        <x-input-error :messages="$errors->get('complemento')" class="mt-2" />
                     </div>
                 </div>
 
@@ -134,16 +139,19 @@
                     <div class="form-group">
                         <label for="cep">CEP</label>
                         <input type="text" name="cep" id="" class="form-control" value="{{$address->ENDERECO_CEP}}">
+                        <x-input-error :messages="$errors->get('cep')" class="mt-2" />
                     </div>
 
                     <div class="form-group">
                         <label for="cidade">Cidade</label>
                         <input type="text" name="cidade" id="" class="form-control" value="{{$address->ENDERECO_CIDADE}}">
+                        <x-input-error :messages="$errors->get('cidade')" class="mt-2" />
                     </div>
 
                     <div class="form-group">
                         <label for="estado">Estado</label>
                         <input type="text" name="estado" id="" class="form-control" value="{{$address->ENDERECO_ESTADO}}">
+                        <x-input-error :messages="$errors->get('estado')" class="mt-2" />
                     </div>
                     
                     <div class="dialog-container-buttons">
