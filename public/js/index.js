@@ -34,10 +34,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-
-
-
-
     const container = document.querySelector(".cards-pai");
 
     // Função para rolar para a esquerda
@@ -135,7 +131,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 var btn = document.querySelector("#btn");
-var btn_s = document.querySelector("#btn");
+var btn_s = document.querySelector("#btn_s");
 
 var sidebar = document.querySelector(".sidebar");
 var searchBtn = document.querySelector(".bx-search");
@@ -146,7 +142,7 @@ btn.onclick = function () {
     navList.classList.toggle("active");
 };
 
-btn_S.onclick = function () {
+btn_s.onclick = function () {
     sidebar.classList.toggle("active");
     navList.classList.toggle("active");
 };

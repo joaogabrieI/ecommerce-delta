@@ -20,8 +20,8 @@
             <div class="sidebar">
                 <div class="logo-content">
                     <div class="logo">
-                        <i class='bx bxs-home'></i>
-                        <div class="logo-name">Home</div>
+                        <i class='bx bxs-cart'></i>
+                        <div class="logo-name">Carrinho</div>
                     </div>
                     <i class='bx bx-menu' id="btn"></i>
                     <i class='bx bx-x' id="btn_s"></i>
@@ -103,13 +103,13 @@
     <main>
         <section class="checkout">
             <div class="container-checkout">
-            @if ($errors->any())
+                @if ($errors->any())
                 <div class="alert alert-danger alert-link">
-                        @foreach ($errors->all() as $error)
-                            <p>{{ $error }}</p>
-                        @endforeach
+                    @foreach ($errors->all() as $error)
+                    <p>{{ $error }}</p>
+                    @endforeach
                 </div>
-            @endif
+                @endif
                 <h1 class="checkout-title">Detalhes da Compra</h1>
                 <div class="order-summary">
                     <h2>Resumo do Pedido</h2>
@@ -144,10 +144,10 @@
                                 </td>
                             </tr>
                             @endforeach
-                            <tr class="bg-dark">
+                            <!-- <tr class="bg-dark">
                                 <td colspan="3"></td>
                                 <td class="text-end p-2">Subtotal: R$ {{ number_format($subtotal, 2, ',', '.') }}</td>
-                            </tr>
+                            </tr> -->
                             <tr>
                                 <td colspan="4" class="text-end mt-2 p-2">
                                     <h2 class="mt-3">Total: R$ {{ number_format($subtotal, 2, ',', '.') }} <span>á vista</span></h2>

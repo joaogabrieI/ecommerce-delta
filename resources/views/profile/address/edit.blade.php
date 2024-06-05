@@ -20,8 +20,8 @@
             <div class="sidebar">
                 <div class="logo-content">
                     <div class="logo">
-                        <i class='bx bxs-home'></i>
-                        <div class="logo-name">Home</div>
+                        <i class='bx bx-map'></i>
+                        <div class="logo-name">Endereço</div>
                     </div>
                     <i class='bx bx-menu' id="btn"></i>
                     <i class='bx bx-x' id="btn_s"></i>
@@ -154,7 +154,7 @@
                         <input type="text" name="estado" id="" class="form-control" value="{{$address->ENDERECO_ESTADO}}">
                         <x-input-error :messages="$errors->get('estado')" class="mt-2" />
                     </div>
-                    
+
                     <div class="dialog-container-buttons">
                         <button type="submit" class="mt-2 dialog-button-edit">Editar</button>
                     </div>

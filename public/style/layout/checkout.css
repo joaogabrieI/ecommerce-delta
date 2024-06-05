@@ -13,7 +13,7 @@
     border: 1px solid rgba(255, 255, 255, 0.397);
     border-radius: 20px;
     box-shadow: 0 14px 28px rgb(16, 64, 74, 0.25), 0 10px 10px rgb(0, 0, 0, 0.22);
-    margin-top: 130px;
+    margin-top: 10%;
 }
 
 .checkout-title{
@@ -27,7 +27,8 @@
 
 .img-checkout{
     width: 200px;
-    height: 150px;
+    height: 170px;
+    /* object-fit: scale-down; */
 }
 
 .text-center{

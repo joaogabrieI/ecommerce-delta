@@ -179,7 +179,7 @@
     padding: 20px;
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.199);
-    background-color: #002b4b;
+    background-color:  #0E3873;
 }
 
 #CPF{
@@ -255,8 +255,8 @@
 }
 
 .section-pai-pw{
-    padding: 50px;
-    background-color: #002b4b;
+    padding: 30px;
+    background-color: #0E3873;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.9);
     border-radius: 20px;
 }
@@ -287,16 +287,18 @@
 .section-main-editar{
     margin-top: 170px;
     padding: 30px;
-    background-color: #002b4b;
+    background-color: #0E3873;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.7);
     border-radius: 10px;
     color: white;
     font-size: clamp(0.5rem, 1.3vw, 5rem);
+}
+
+.subtotal{
+    width: 100%;
 }
 /* 
 .d-flex-column{
     display: flex;
     gap: 50px;
 } */
-
-

@@ -22,8 +22,8 @@
             <div class="sidebar">
                 <div class="logo-content">
                     <div class="logo">
-                        <i class='bx bxs-home'></i>
-                        <div class="logo-name">Home</div>
+                        <i class='bx bxs-package'></i>
+                        <div class="logo-name">Produtos</div>
                     </div>
                     <i class='bx bx-menu' id="btn"></i>
                     <i class='bx bx-x' id="btn_s"></i>

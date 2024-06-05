@@ -23,8 +23,8 @@
             <div class="sidebar">
                 <div class="logo-content">
                     <div class="logo">
-                        <i class='bx bxs-home'></i>
-                        <div class="logo-name">Home</div>
+                        <i class='bx bxs-shopping-bags'></i>
+                        <div class="logo-name">Pedidos</div>
                     </div>
                     <i class='bx bx-menu' id="btn"></i>
                     <i class='bx bx-x' id="btn_s"></i>
@@ -104,13 +104,13 @@
     </header>
 
     <section class="section-pedidos">
-    @isset($sucess)
+        @isset($sucess)
         <div class="alert alert-success alert-link">
             {{$sucess}}
         </div>
-    @endisset
+        @endisset
 
-    @foreach($orders as $order)
+        @foreach($orders as $order)
         <div class="container-pedidos">
             <div class="info">
                 <div class="info-item">
@@ -128,7 +128,7 @@
                 <div class="info-item">
                     <p class="info-title">Produto</p>
                     @foreach($order->items as $item)
-                        <p>{{ $item->product->PRODUTO_NOME }} - {{ $item->ITEM_QTD }} x R$ {{ number_format($item->ITEM_PRECO, 2, ',', '.') }}</p>
+                    <p>{{ $item->product->PRODUTO_NOME }} - {{ $item->ITEM_QTD }} x R$ {{ number_format($item->ITEM_PRECO, 2, ',', '.') }}</p>
                     @endforeach
                 </div>
                 <div class="info-item">
@@ -137,7 +137,7 @@
                 </div>
             </div>
         </div>
-    @endforeach
+        @endforeach
     </section>
 
     <footer>
