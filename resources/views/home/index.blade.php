@@ -89,6 +89,7 @@
                 <input type="submit" name="Entrar" value="Sair" class="btn-log">
                 <!-- <img src="../imgs/Carrinho.png" alt="" class="cart"> -->
             </form>
+            <a href="{{route('cart')}}"><i class='bx bx-cart'></i></a>
         </div>
         @endauth
         <nav class="nav-navbar">

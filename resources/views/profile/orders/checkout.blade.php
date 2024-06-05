@@ -103,6 +103,13 @@
     <main>
         <section class="checkout">
             <div class="container-checkout">
+            @if ($errors->any())
+                <div class="alert alert-danger alert-link">
+                        @foreach ($errors->all() as $error)
+                            <p>{{ $error }}</p>
+                        @endforeach
+                </div>
+            @endif
                 <h1 class="checkout-title">Detalhes da Compra</h1>
                 <div class="order-summary">
                     <h2>Resumo do Pedido</h2>

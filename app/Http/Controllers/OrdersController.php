@@ -30,6 +30,10 @@ class OrdersController extends Controller
         $products = Cart::with(['products.images'])->where('USUARIO_ID', $userId)->where('ITEM_QTD', '>', 0)->get();
         $adresses = Address::where('USUARIO_ID', $userId)->where('ENDERECO_APAGADO', 0)->get();
 
+        if ($adresses->isEmpty()) {
+            return redirect()->back()->withErrors('É preciso ter um endereço cadastrado.');
+        }
+
         $subtotal = 0;
         foreach ($products as $cartItem) {
             $product = $cartItem->products;

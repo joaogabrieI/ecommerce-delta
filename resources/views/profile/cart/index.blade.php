@@ -4,6 +4,15 @@
 <div class="container carrinho-container">
 
     <div class="section">
+    @if ($errors->any())
+    <div class="alert alert-danger alert-link">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
     <div class="section-title nome">Produtos</div>
     @foreach($products as $cartItem)
             @php
