@@ -74,4 +74,5 @@ Route::middleware('auth')->group(function () {
     Route::post('/cart/update/{productId}', [CartController::class, 'update'])->name('cart.update');
 
     Route::get('/checkout', [OrdersController::class, 'checkout'])->name('checkout');
+    Route::post('/order', [OrdersController::class, 'store'])->name('order.store');
 });

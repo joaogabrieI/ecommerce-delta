@@ -104,7 +104,11 @@
     </header>
 
     <section class="section-pedidos">
-
+    @isset($enderecoSucesso)
+        <div class="alert alert-success alert-link">
+            {{$enderecoSucesso}}
+        </div>
+    @endisset
         <div class="container-pedidos">
             <div class="info">
                 <div class="info-item">

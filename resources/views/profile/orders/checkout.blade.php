@@ -152,7 +152,7 @@
                 </div>
                 <div class="address-selection">
                     <h2>Escolha o Endereço de Entrega</h2>
-                    <form action="#" method="post">
+                    <form action="{{route('order.store')}}" method="post">
                         @csrf
                         <div class="form-group">
                             <label for="endereco_id">Endereço:</label>
