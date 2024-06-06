@@ -8,8 +8,22 @@ use App\Models\User;
 
 class AddressController extends Controller
 {
+    public function create()
+    {
+        return view('profile.address.create');
+    }
     public function store(Request $request, User $user)
     {
+        $request->validate([
+            'identificacao' => ['required', 'string', 'max:255'],
+            'logradouro' => ['required', 'string', 'max:255'],
+            'numero' => ['required', 'numeric'],
+            'complemento' => ['max:255'],
+            'cep' => ['required', 'numeric', 'digits:8'],
+            'cidade' => ['required', 'string', 'max:255'],
+            'estado' => ['required', 'string', 'max:255', 'size:2']
+        ]);
+        
         Address::create([
             "USUARIO_ID" => $user->USUARIO_ID,
             "ENDERECO_NOME" => $request->identificacao,
