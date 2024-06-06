@@ -34,6 +34,10 @@ class OrdersController extends Controller
             return redirect()->back()->withErrors('É preciso ter um endereço cadastrado.');
         }
 
+        if ($products->isEmpty()) {
+            return redirect()->back()->withErrors('Seu carrinho está vazio.');
+        }
+
         $subtotal = 0;
         foreach ($products as $cartItem) {
             $product = $cartItem->products;
