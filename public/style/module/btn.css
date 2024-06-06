@@ -284,3 +284,23 @@ button {
 .dialog-address-button-close{
     width: 100%;
 }
+
+.btn1 {
+    background-color: #01b310;
+    border: none;
+    color: hsl(0, 0%, 100%);
+    padding: 20px 106px;
+    text-decoration: none;
+    font-size: 23px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bx-cart{
+    position: absolute;
+    margin-top: -30px;
+}
