@@ -28,6 +28,8 @@ body {
 .carousel-images {
     display: flex;
     transition: transform 0.9s ease-in-out;
+    width: 100%;
+    object-fit: cover ;
 }
 
 .carousel-img {
@@ -180,3 +182,5 @@ p {
     padding: 15px;
     border-radius: 5px;
 }
+
+

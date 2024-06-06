@@ -105,19 +105,20 @@
 
         <div class="carousel-container">
             <div class="thumbnails">
-                @foreach ($images as $image)
-                <img class="thumbnail-img p-img" src="{{$image->IMAGEM_URL}}" alt="Image 1" data-index="{{$image->IMAGEM_ORDEM}}">
+                @foreach ($images as $index => $image)
+                <img class="thumbnail-img p-img" src="{{$image->IMAGEM_URL}}" alt="Image {{$index + 1}}" data-index="{{$index}}">
                 @endforeach
             </div>
 
             <div class="carousel">
                 <div class="carousel-images">
-                    @foreach ($images as $image)
-                    <img class="carousel-img" src="{{$image->IMAGEM_URL}}" alt="Image 5">
+                    @foreach ($images as $index => $image)
+                    <img class="carousel-img" src="{{$image->IMAGEM_URL}}" alt="Image {{$index + 1}}" style="display: none;">
                     @endforeach
                 </div>
             </div>
         </div>
+
 
         <div class="card-desc">
             @php

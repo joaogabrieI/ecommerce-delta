@@ -103,7 +103,7 @@
 
         <div class="container carrinho-container">
 
-            <div class="section">
+            <div class="section" id="resumo-produto">
                 @if ($errors->any())
                 <div class="alert alert-danger alert-link">
                     @foreach ($errors->all() as $error)
@@ -145,7 +145,7 @@
                 @endforeach
             </div>
 
-            <div class="section">
+            <div class="section" id="resumo">
                 <div class="section-title">Resumo</div>
                 <div class="resume">
                     <div>Valor dos Produtos: <span class="resume-value">Total: R$ {{ number_format($subtotal, 2, ',', '.') }}</span></div>

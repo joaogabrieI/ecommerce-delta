@@ -81,7 +81,6 @@ button{
     position: relative;
     border-radius: 20px;
     border: 1px solid #4bb6b7;
-    background-color:  #4bb6b7;
     font-size: 15px;
     font-weight: 700;
     margin: 10px 0px;
@@ -90,7 +89,6 @@ button{
     text-transform: capitalize;
     transition: 0.3s ease-in-out;
     color: white;
-
 }
 
 button:active{
@@ -236,7 +234,12 @@ h1.title{
 }
 
 button {
-    background-color: #f58025;
+    /* background-color: #f58025; */
+    /* background-color: #fa6744; */
+    /* background-color: #7d1466; */
+    /* background-color: #002b4b; */
+    background-color: #ff3447;
+    
     color: white;
     padding: 10px 20px;
     border: none;
@@ -275,6 +278,7 @@ button {
 
 .user-address-card-btn{
     width: 100%;
+    color: white !important;
 }
 
 .dialog-address-button-close{

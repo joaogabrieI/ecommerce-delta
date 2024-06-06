@@ -10,10 +10,13 @@
 .imgs-icons{
     width: 40%;
     height: 65%;
+    color: white;
+    filter: brightness(0) invert(1);
 }
 
+
 .div0{
-    background-color: #ffd311;
+    background-color: #7d1466;
     width: 18%;
     height: 5%;
     text-align: center;
@@ -302,3 +305,13 @@
     display: flex;
     gap: 50px;
 } */
+
+#resumo{
+    position: fixed;
+    margin-left: 55%;
+    top: 155px;
+}
+
+#resumo-produto{
+    margin-left: -40%;
+}
