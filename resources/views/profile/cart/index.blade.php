@@ -7,6 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="../style/main.css">
     <link rel="icon" type="image/x-icon" href="{{asset('imgs/favicon.ico')}}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
@@ -105,11 +106,9 @@
             <div class="section">
                 @if ($errors->any())
                 <div class="alert alert-danger alert-link">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
+                    @foreach ($errors->all() as $error)
+                    <p style="font: size 40px;">{{ $error }}</p>
+                    @endforeach
                 </div>
                 @endif
                 <div class="section-title nome">Produtos</div>

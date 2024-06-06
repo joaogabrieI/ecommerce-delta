@@ -9,6 +9,7 @@
         <title>Delta Games</title>
         <link rel="stylesheet" href="../style/main.css">
         <link rel="icon" type="image/x-icon" href="{{asset('imgs/favicon.ico')}}">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
     </head>
@@ -170,9 +171,8 @@
                             <h3 class="user-address-card-title">{{$address->ENDERECO_NOME}}</h3>
 
                             <div class="testesste">
-                                <p class="user-address-card-text"> Logradouro: {{$address->ENDERECO_LOGRADOURO}},
-                                    Número: {{$address->ENDERECO_NUMERO}} - Cidade: @isset($address->ENDERECO_COMPLEMENTO) - @endisset
-                                    {{$address->ENDERECO_CIDADE}} Estado: {{$address->ENDERECO_ESTADO}} - CEP: {{$address->ENDERECO_CEP}}
+                                <p class="user-address-card-text">{{$address->ENDERECO_LOGRADOURO}}, {{$address->ENDERECO_NUMERO}} - @isset($address->ENDERECO_COMPLEMENTO) {{$address->ENDERECO_COMPLEMENTO}} - @endisset
+                                    {{$address->ENDERECO_CIDADE}} / {{$address->ENDERECO_ESTADO}} - CEP: {{$address->ENDERECO_CEP}}
                                 </p>
 
                                 <div class="d-flex">
@@ -188,9 +188,11 @@
                         </div>
                         @endforeach
 
-                        <button class="user-address-card-btn open-modal-address">
-                            Adicionar Endereço
-                        </button>
+                        <a href="{{route('address.create')}}">
+                            <button class="user-address-card-btn open-modal-address">
+                                Adicionar Endereço
+                            </button>
+                        </a>
 
                         <!-- <dialog class="dialog-add-address p-3">
                     <div class="dialog">
