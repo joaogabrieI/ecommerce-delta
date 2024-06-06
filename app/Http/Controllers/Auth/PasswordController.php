@@ -37,6 +37,6 @@ class PasswordController extends Controller
         $user->USUARIO_SENHA = Hash::make($request->new_password);
         $user->save();
 
-        return redirect()->route('profile.edit')->with('mensagemSucesso', 'Senha atualizada com sucesso!');
+        return redirect()->route('profile.edit')->with(['mensagem.sucesso' => 'Senha atualizada com sucesso!']);
     }
 }

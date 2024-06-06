@@ -61,6 +61,7 @@ Route::middleware('auth')->group(function () {
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
         ->name('logout');
 
+    Route::get('/address/create', [AddressController::class, 'create'])->name('address.create');
     Route::post('/address/{user}', [AddressController::class, 'store'])->name('address.store');
     Route::delete('/address/{address}', [AddressController::class, 'destroy'])->name('address.destroy');
     Route::get('/address/{address}/edit', [AddressController::class, 'edit'])->name('address.edit');
