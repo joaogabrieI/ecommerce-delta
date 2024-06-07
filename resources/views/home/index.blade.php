@@ -96,7 +96,9 @@
             <ul>
                 <li class="li"><a href="{{route('products')}}"><img src="../imgs/playstation.png" alt="">Playstation</a></li>
                 <li class="li"><a href="{{route('products')}}"><img src="../imgs/xbox.png" alt="">Xbox</a></li>
-                <input type="text" placeholder="Pesquisar" class="input-pesquisa">
+                <form action="{{ route('search') }}" method="GET">
+                    <input type="text" placeholder="Pesquisar" name="query" class="input-pesquisa" style="width: 400px; height: 40px">
+                </form>
                 <li class="li"><a href="{{route('products')}}"><img src="../imgs/nintendo.png" alt="">Nintendo</a></li>
                 <li class="li"><a href="{{route('products')}}"><img src="../imgs/pc.png" alt="">Pc</a></li>
             </ul>

@@ -5,11 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Delta Games</title>
-    <link rel="stylesheet" href="{{asset('style/main.css')}}">
+    <link rel="stylesheet" href="{{asset('../style/main.css')}}">
+    <script src="{{asset('js/main.js')}}" defer></script>
     <link rel="icon" type="image/x-icon" href="{{asset('imgs/favicon.ico')}}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
 </head>
+
 
 <body>
 
@@ -20,8 +23,8 @@
             <div class="sidebar">
                 <div class="logo-content">
                     <div class="logo">
-                        <i class='bx bx-map'></i>
-                        <div class="logo-name">Endereço</div>
+                        <i class='bx bxs-home'></i>
+                        <div class="logo-name">Home</div>
                     </div>
                     <i class='bx bx-menu' id="btn"></i>
                     <i class='bx bx-x' id="btn_s"></i>
@@ -64,7 +67,7 @@
                                 <i class='bx bxs-cart'></i>
                                 <span class="link-name">Alterar senha</span>
                             </a>
-                            <span class="tooltip">Alterar senha</span>
+                            <span class="tooltip">Carrinho</span>
                         </li>
                         @endauth
                     </ul>
@@ -81,13 +84,13 @@
         </section>
 
         <div class="logo-container">
-            <img src="{{asset('imgs/logo.jpg')}}" alt="" class="logo-principal2">
+            <img src="../imgs/logo.jpg" alt="" class="logo-principal2">
         </div>
 
         @guest
         <div class="cart entrar">
             <a href="{{route('login')}}"> <input type="button" name="Entrar" value="Entrar" class="btn-log"></a>
-            <i class='bx bx-cart'></i>
+
         </div>
         @endguest
         @auth
@@ -102,75 +105,82 @@
 
     </header>
 
-    <main class="main-editar">
-        <section class="section-main-editar">
-            <div class="d-flex align-items-center">
-                <span class="material-symbols-outlined"> location_on </span>
-                <h3>Editar Endereço</h3>
+    <section class="section2 produtos_produtos">
+
+        <div class="tabela-navegacao">
+            <div class="console">
+                <h2>Categorias</h2>
             </div>
-            <form action="{{route('address.update', $address->ENDERECO_ID)}}" method="post" class="d-flex-column">
-                @csrf
-                @method('put')
 
-                <div>
-                    <div class="form-group">
-                        <label for="identificacao">Identificação</label>
-                        <input type="text" name="identificacao" id="" class="form-control" value="{{$address->ENDERECO_NOME}}">
-                        <x-input-error :messages="$errors->get('identificacao')" class="mt-2" />
-                    </div>
+            <div class="console-op">
+                @foreach($categories as $category)
+                <a href="{{route('products.category', $category->CATEGORIA_ID)}}">{{$category->CATEGORIA_NOME}}</a>
+                @endforeach
+            </div>
 
-                    <div class="form-group">
-                        <label for="logradouro">Logradouro</label>
-                        <input type="text" name="logradouro" id="" class="form-control" value="{{$address->ENDERECO_LOGRADOURO}}">
-                        <x-input-error :messages="$errors->get('logradouro')" class="mt-2" />
-                    </div>
+        </div>
 
-                    <div class="form-group">
-                        <label for="numero">Número</label>
-                        <input type="text" name="numero" id="" class="form-control" value="{{$address->ENDERECO_NUMERO}}">
-                        <x-input-error :messages="$errors->get('numero')" class="mt-2" />
-                    </div>
-
-                    <div class="form-group">
-                        <label for="complemento">Complemento</label>
-                        <input type="text" name="complemento" id="" class="form-control" value="{{$address->ENDERECO_COMPLEMENTO}}">
-                        <x-input-error :messages="$errors->get('complemento')" class="mt-2" />
-                    </div>
+        <div class="cards-pai2 cardsPai_produtos" id="cardsPai">
+            @foreach($products as $product)
+            @php
+            // Calculando o preço com desconto
+            $desconto = ($product->PRODUTO_PRECO * $product->PRODUTO_DESCONTO) / 100;
+            $precoComDesconto = $product->PRODUTO_PRECO - $desconto;
+            @endphp
+            @if($product->images->isNotEmpty())
+            @foreach($product->images as $image)
+            <div class="card2" id="modeloCard2">
+                <div class="card-image2"><img class="imgs-cards" src="{{$image->IMAGEM_URL}}" height="150px" width="100px" alt=""></div>
+                <div class="titulo-produto">
+                    <h2>{{$product->PRODUTO_NOME}}</h2>
                 </div>
-
-                <div>
-                    <div class="form-group">
-                        <label for="cep">CEP</label>
-                        <input type="text" name="cep" id="" class="form-control" value="{{$address->ENDERECO_CEP}}">
-                        <x-input-error :messages="$errors->get('cep')" class="mt-2" />
-                    </div>
-
-                    <div class="form-group">
-                        <label for="cidade">Cidade</label>
-                        <input type="text" name="cidade" id="" class="form-control" value="{{$address->ENDERECO_CIDADE}}">
-                        <x-input-error :messages="$errors->get('cidade')" class="mt-2" />
-                    </div>
-
-                    <div class="form-group">
-                        <label for="estado">Estado</label>
-                        <input type="text" name="estado" id="" class="form-control" value="{{$address->ENDERECO_ESTADO}}">
-                        <x-input-error :messages="$errors->get('estado')" class="mt-2" />
-                    </div>
-
-                    <div class="dialog-container-buttons">
-                        <button type="submit" class="mt-2 dialog-button-edit">Editar</button>
-                    </div>
+                <div class="card-prices">
+                    <div class="card-price">R$ {{number_format($product->PRODUTO_PRECO, 2, ',', '.')}}</div>
+                    <p>ou</p>
+                    <div class="card-price">R$ {{ number_format($precoComDesconto, 2, ',', '.') }} <span class="nc">Com desconto</span></div>
                 </div>
+                <div class="card-buttons">
+                    <a href="{{route('product.show', $product->PRODUTO_ID)}}">
+                        <button class="card-button" id="comp">Ver Detalhes</button>
+                    </a>
+                    <form action="{{route('cart.add', $product->PRODUTO_ID)}}" method="post">
+                        @csrf
+                        <button class="card-button" id="add">Adicionar</button>
+                    </form>
+                </div>
+            </div>
+            @endforeach
+            @else
+            <div class="card2" id="modeloCard2">
+                <div class="card-image2"><img class="imgs-cards" src="{{asset('imgs/default.jpg')}}" height="150px" width="100px" alt=""></div>
+                <div class="titulo-produto">
+                    <h2>{{$product->PRODUTO_NOME}}</h2>
+                </div>
+                <div class="card-prices">
+                    <div class="card-price">R$ {{$product->PRODUTO_PRECO}}</div>
+                    <p>ou</p>
+                    <div class="card-price">R$ 129,99 <span class="nc">Com desconto</span></div>
+                </div>
+                <div class="card-buttons">
+                    <a href="{{route('product.show', $product->PRODUTO_ID)}}">
+                        <button class="card-button" id="comp">Ver Detalhes</button>
+                    </a>
+                    <form action="{{route('cart.add', $product->PRODUTO_ID)}}" method="post">
+                        @csrf
+                        <button class="card-button" id="add">Adicionar</button>
+                    </form>
+                </div>
+            </div>
+            @endif
+            @endforeach
+        </div>
 
-
-            </form>
-        </section>
-    </main>
+    </section>
 
     <footer>
         <div class="company-info">
             <div class="footer-logo">
-                <img src="../imgs/logo.jpg" alt="" class="logo">
+                <img src="{{asset('../imgs/logo.jpg')}}" alt="" class="logo">
             </div>
 
             <p class="text">

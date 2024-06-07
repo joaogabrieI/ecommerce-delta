@@ -75,7 +75,9 @@
 
             <div class="input-container">
                 <i class='bx bx-search'></i>
-                <input type="text" placeholder="Pesquisar" class="input-pesquisa">
+                <form action="{{ route('search') }}" method="GET">
+                    <input type="text" placeholder="Pesquisar" name="query" class="input-pesquisa">
+                </form>
             </div>
 
         </section>
