@@ -71,7 +71,7 @@ input {
     color: #f58025;
 }
 
-.quantidade{
+.quantidade {
     margin-top: -80px;
     margin-bottom: 60px;
     font-size: 1.2rem;
@@ -79,9 +79,43 @@ input {
     color: white;
 }
 
-.section3{
+.section3 {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+.alert-cart {
+    font-size: clamp(0.5rem, 1.25rem, 1rem);
+}
+
+.alert-cart2 {
+    font-size: clamp(0.5rem, 1.25rem, 0.85rem);
+}
+
+.alert-cart-pai {
+    display: block;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.erro-endereço {
+    color: black;
+    font-size: 20px;
+    text-decoration: none;
+    list-style: none;
+}
+
+.erro-endereço-pai {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    gap: 20px;
+    background-color: red;
+}
+
+.img-erro-cart{
+    width: 20px;
+}

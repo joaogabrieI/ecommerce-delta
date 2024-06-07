@@ -186,7 +186,7 @@ h1.title{
 }
 
 #btn-ex{
-    margin-left: 20%;
+    margin-left: 30%;
     width: 50%;
 }
 
@@ -215,7 +215,7 @@ h1.title{
 }
 
 .button-container {
-    display: flex;
+    display: block;
     justify-content: center;
     text-align: center;
     text-decoration: none;
@@ -226,11 +226,24 @@ h1.title{
 .button-primary {
     background-color: #4CAF50;
     color: white;
-    padding: 10px 70px;
+    padding: 10px 50px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 20px;
+    }
+    
+    .button-primary-continuar{
+    background-color: #ff3447;
+    /* background-color: #d1d5d8; */
+    color: white;
+    /* color: black; */
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    margin-top: -20px;
 }
 
 button {
@@ -304,3 +317,4 @@ button {
     position: absolute;
     margin-top: -30px;
 }
+

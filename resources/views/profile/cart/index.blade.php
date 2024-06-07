@@ -107,17 +107,18 @@
 
             <div class="section" id="resumo-produto">
                 @if ($errors->any())
-                <div class="alert alert-danger alert-link">
+                <div class="alert alert-danger alert-link erro-endereço-pai">
                     @foreach ($errors->all() as $error)
-                    <p style="font: size 40px;">{{ $error }}</p>
+                    <img src="{{asset('imgs/Erro.png')}}" alt="" class="img-erro-cart">
+                    <p class="erro-endereço">{{ $error }}</p>
                     @endforeach
                 </div>
                 @endif
 
                 @if($products->isEmpty())
-                <div style="color: #fafafa; margin: 20px;">
-                    <p>Seu carrinho está vazio</p>
-                    <p>Se você não está encontrando o produto que deseja, use o campo "Pesquisa" acima digitando uma palavra-chave.</p>
+                <div style="color: #fafafa; margin: 20px;" class="alert-cart-pai">
+                    <p class="alert-cart">Seu carrinho está vazio</p>
+                    <p class="alert-cart2">Se você não está encontrando o produto que deseja, use o campo "Pesquisa" acima digitando uma palavra-chave.</p>
                 </div>
                 @endif
                 <div class="section-title nome">Produtos</div>
@@ -165,9 +166,15 @@
                         <button class="button-primary">Finalizar Pedido</button>
                     </div>
                 </a>
+                <a href="/" class="btn btn-secondary">
+                    <div class="button-container">
+                        <button class="button-primary-continuar">Continuar Comprando</button>
+                    </div>
+                </a>
             </div>
 
         </div>
+        
     </section>
 
     <footer>

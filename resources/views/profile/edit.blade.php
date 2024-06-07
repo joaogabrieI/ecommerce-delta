@@ -177,7 +177,7 @@
                                     {{$address->ENDERECO_CIDADE}} / {{$address->ENDERECO_ESTADO}} - CEP: {{$address->ENDERECO_CEP}}
                                 </p>
 
-                                <div class="d-flex">
+                                <div class="d-flex edit-ex">
                                     <a href="{{route('address.edit', $address->ENDERECO_ID)}}" class="open-modal user-address-edit-btn">Editar</a>
                                     <form action="{{route('address.destroy', $address->ENDERECO_ID)}}" method="post" class="">
                                         @csrf

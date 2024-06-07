@@ -123,6 +123,7 @@
         <div class="cards-pai2 cardsPai_produtos" id="cardsPai">
             @if($products->isEmpty())
             <div class="no-results">
+                <img src="{{asset('imgs/Erro.png')}}" alt="" class="img-erro">
                 <p>Nenhum produto encontrado para a busca "{{ request()->input('query') }}".</p>
             </div>
             @else
