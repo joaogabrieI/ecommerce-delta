@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Carrinho</title>
     <link rel="stylesheet" href="../style/main.css">
     <link rel="icon" type="image/x-icon" href="{{asset('imgs/favicon.ico')}}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
@@ -111,6 +111,13 @@
                     @foreach ($errors->all() as $error)
                     <p style="font: size 40px;">{{ $error }}</p>
                     @endforeach
+                </div>
+                @endif
+
+                @if($products->isEmpty())
+                <div style="color: #fafafa; margin: 20px;">
+                    <p>Seu carrinho está vazio</p>
+                    <p>Se você não está encontrando o produto que deseja, use o campo "Pesquisa" acima digitando uma palavra-chave.</p>
                 </div>
                 @endif
                 <div class="section-title nome">Produtos</div>
