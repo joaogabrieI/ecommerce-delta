@@ -121,6 +121,11 @@
         </div>
 
         <div class="cards-pai2 cardsPai_produtos" id="cardsPai">
+            @if($products->isEmpty())
+            <div class="no-results">
+                <p>Nenhum produto encontrado para a busca "{{ request()->input('query') }}".</p>
+            </div>
+            @else
             @foreach($products as $product)
             @php
             // Calculando o preço com desconto
@@ -173,6 +178,7 @@
             </div>
             @endif
             @endforeach
+            @endif
         </div>
 
     </section>
